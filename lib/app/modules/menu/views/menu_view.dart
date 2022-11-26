@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:school_every_where_v2/app/config/theme/theme.dart';
 
+import '../../../widgets/custom_drawer.dart';
 import '../controllers/menu_controller.dart';
 
 class MenuView extends GetView<MenuController> {
@@ -10,10 +12,11 @@ class MenuView extends GetView<MenuController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MenuView'),
-        centerTitle: true,
+        backgroundColor: AppColors.scaffoldBackgroundColor,
+        iconTheme: const IconThemeData(color: AppColors.black),
       ),
-      body: Center(
+      drawer: const CustomDrawer(),
+      body: const Center(
         child: Text(
           'MenuView is working',
           style: TextStyle(fontSize: 20),
