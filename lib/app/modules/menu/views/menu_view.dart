@@ -15,7 +15,6 @@ class MenuView extends GetView<MenuController> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          
           backgroundColor: AppColors.scaffoldBackgroundColor,
           iconTheme: const IconThemeData(color: AppColors.black),
           actions: [
@@ -32,7 +31,7 @@ class MenuView extends GetView<MenuController> {
         body: SingleChildScrollView(
           child: Column(
             children: const [
-              DayNightGreetingBanner(),
+              // DayNightGreetingBanner(),
               Center(
                 child: Text(
                   'MenuView is working',
