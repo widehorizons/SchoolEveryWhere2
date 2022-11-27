@@ -1,4 +1,4 @@
-# school_every_where_v2
+# schooleverywhereV2
 
 A new Flutter project.
 

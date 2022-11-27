@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:school_every_where_v2/app/config/Constants/dimensions.dart';
-import 'package:school_every_where_v2/app/config/theme/theme.dart';
+import 'package:schooleverywhereV2/app/config/Constants/dimensions.dart';
+import 'package:schooleverywhereV2/app/config/theme/theme.dart';
 
 import '../../../widgets/custom_drawer.dart';
 import '../../../widgets/day_night_greating.dart';

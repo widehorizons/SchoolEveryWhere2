@@ -2,7 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:school_every_where_v2/app/widgets/custom_drawer.dart';
+import 'package:schooleverywhereV2/app/widgets/custom_drawer.dart';
 
 import '../../../config/theme/theme.dart';
 import '../controllers/home_controller.dart';

@@ -1,6 +1,6 @@
 {
-    "name": "school_every_where_v2",
-    "short_name": "school_every_where_v2",
+    "name": "schooleverywhereV2",
+    "short_name": "schooleverywhereV2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -4,7 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 
 import 'package:get/get.dart' hide Response;
-import 'package:school_every_where_v2/app/config/utils/prefs.dart';
+import 'package:schooleverywhereV2/app/config/utils/prefs.dart';
 
 import '../../services/connectivity.dart';
 import '../Constants/end_points.dart';
