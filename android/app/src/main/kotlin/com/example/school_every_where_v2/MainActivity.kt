@@ -1,4 +1,4 @@
-package com.example.school_every_where_v2
+package com.schooleverywhere
 
 import io.flutter.embedding.android.FlutterActivity
 
