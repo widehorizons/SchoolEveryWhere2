@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../config/theme/theme.dart';
 
@@ -11,14 +12,17 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 4.0,
-      backgroundColor: AppColors.scaffoldBackgroundColor,
       child: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
-          DrawerHeader(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [],
+          UserAccountsDrawerHeader(
+            accountName: const Text('Mostafa'),
+            currentAccountPicture:
+                const Image(image: AssetImage('assets/moon.png')),
+            accountEmail: Text(
+              "Mostafa@WideHorizons.net",
+              style: context.textTheme.labelMedium!
+                  .copyWith(color: AppColors.white),
             ),
           ),
 
