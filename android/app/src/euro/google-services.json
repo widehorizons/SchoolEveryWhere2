@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "238046905041",
+    "firebase_url": "https://euro-schools.firebaseio.com",
+    "project_id": "euro-schools",
+    "storage_bucket": "euro-schools.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238046905041:android:bfd8422513d5a3bc847bf0",
+        "android_client_info": {
+          "package_name": "com.widehorizons.ESASchools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "238046905041-jfe8cjt02k7osqmmv0a8jiq0vjr3kuqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.widehorizons.ESASchools",
+            "certificate_hash": "e1809fbe8a1718b7e85bca7cc04a31b6da603b50"
+          }
+        },
+        {
+          "client_id": "238046905041-p9b7ts64f2adqpbd5m69tcv3754fg08i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwtPIBMUzdvqPAB85RdOqlNtxxLIGbTi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "238046905041-p9b7ts64f2adqpbd5m69tcv3754fg08i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "238046905041-1ul6es4g3ndeisklirq7ivu7j5avtgm4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.widehorizons.ESASchools",
+                "app_store_id": "1110677235"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

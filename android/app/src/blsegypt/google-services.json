@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394998152723",
+    "project_id": "british-language-school",
+    "storage_bucket": "british-language-school.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394998152723:android:0be25536673a2636c609e6",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.blsegypt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394998152723-g40pbudebvfm0f2dh3c990o4fbjaousg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChu-uuewrGqT5tTwgQayOPKuAn-G-6Hdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394998152723-g40pbudebvfm0f2dh3c990o4fbjaousg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

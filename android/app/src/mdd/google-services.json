@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "145775459464",
+    "firebase_url": "https://mddschool-70fbd.firebaseio.com",
+    "project_id": "mddschool-70fbd",
+    "storage_bucket": "mddschool-70fbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145775459464:android:1ca34c4b19f70975e6b33d",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.MDD"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145775459464-rrk1764u04osipkd3182qnk1eut0d69a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.MDD",
+            "certificate_hash": "e1809fbe8a1718b7e85bca7cc04a31b6da603b50"
+          }
+        },
+        {
+          "client_id": "145775459464-5kc5786h4c9fft7cq1jop9ad8thn5j3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0vc8zub1zmi3eSwTwZv5_6lDA0k4mDb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145775459464-5kc5786h4c9fft7cq1jop9ad8thn5j3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

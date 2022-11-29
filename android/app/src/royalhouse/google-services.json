@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "445656567722",
+    "firebase_url": "https://royalhouse-2fefd.firebaseio.com",
+    "project_id": "royalhouse-2fefd",
+    "storage_bucket": "royalhouse-2fefd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445656567722:android:fd681480227a14b3e365d3",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.royalhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445656567722-7qa5o2p71he7veht0elmsmfung7jbf3h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.royalhouse",
+            "certificate_hash": "ccc1299bc2b52e07f4dc544ce118a49c5b3db074"
+          }
+        },
+        {
+          "client_id": "445656567722-ugfqo4ufirdo88ghi1ongn31834qvdl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChHFl8QK_ttuhmlqaOg0XIVs4z5JL9Rec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445656567722-ugfqo4ufirdo88ghi1ongn31834qvdl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

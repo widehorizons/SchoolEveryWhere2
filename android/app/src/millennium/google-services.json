@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "258042949186",
+    "project_id": "millennum-school",
+    "storage_bucket": "millennum-school.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258042949186:android:bf7c0f89cd8e64225b87db",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.millennium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258042949186-utti00ib1cni8633g1r2mp7mle8o4b1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo5Fsk-XcPHC0i0uGC4_-FHGCAHxVBk_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258042949186-utti00ib1cni8633g1r2mp7mle8o4b1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

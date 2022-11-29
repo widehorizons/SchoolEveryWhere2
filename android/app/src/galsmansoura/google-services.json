@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "133271503077",
+    "firebase_url": "https://gals-mansoura.firebaseio.com",
+    "project_id": "gals-mansoura",
+    "storage_bucket": "gals-mansoura.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133271503077:android:5c52c61a6f2188dd7c140c",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.galsmansoura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133271503077-7640p85krbhs3j2lo62qhn70sn0o5v6o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.galsmansoura",
+            "certificate_hash": "ccc1299bc2b52e07f4dc544ce118a49c5b3db074"
+          }
+        },
+        {
+          "client_id": "133271503077-36239c2obaq4s9l7jh01lq2ss0m2nii6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhCK84ju-R3AVLqdKl24RkszqiPeuP710"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133271503077-36239c2obaq4s9l7jh01lq2ss0m2nii6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

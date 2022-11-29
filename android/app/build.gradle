@@ -22,20 +22,33 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+
+  def keystoreProperties = new Properties()
+   def keystorePropertiesFile = rootProject.file('key.properties')
+   if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
+
+
 android {
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    compileSdkVersion 30
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    
 
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+      lintOptions {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false //<- add this line
     }
 
     sourceSets {
@@ -45,20 +58,157 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.schooleverywhere"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        
+        minSdkVersion 23
+        compileSdkVersion = 33
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+   }
+   buildTypes {
+       release {
+           signingConfig signingConfigs.release
+       }
+       debug {
+           signingConfig signingConfigs.debug
+       }
+   }
+      flavorDimensions "app"
 
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+    productFlavors {
+           dev {
+            dimension "app"
+            resValue "string", "app_name", "schooleverywhere"
+               applicationIdSuffix ".schooleverywhere"
         }
+        alrowad {
+            dimension "app"
+            resValue "string", "app_name", "alrowad"
+                           applicationIdSuffix ".alrowad"
+
+        }
+        alexdream {
+            dimension "app"
+            resValue "string", "app_name", "Alex Dream Language School"
+                           applicationIdSuffix ".alexdream"
+
+        }
+        royalhouse {
+            dimension "app"
+            resValue "string", "app_name", "Royal House School"
+                           applicationIdSuffix ".royalhouse"
+
+        }
+        blsegypt {
+            dimension "app"
+            resValue "string", "app_name", "blsegypt"
+                           applicationIdSuffix ".blsegypt"
+
+        }
+        euro {
+            dimension "app"
+            resValue "string", "app_name", "Euro Schools"
+                            applicationId  "com.widehorizons.ESASchools"
+
+        }
+        elquds {
+            dimension "app"
+            resValue "string", "app_name", "Elquds Schools"
+                            applicationId  "com.elquds.schooleverywhere"
+
+        }
+         tantaroyal {
+            dimension "app"
+            resValue "string", "app_name", "tantaroyal"
+                           applicationIdSuffix ".tantaroyal.tantaroyal"
+
+         }
+        fisluxor {
+            dimension "app"
+            resValue "string", "app_name", "Future Inernational School"
+                           applicationIdSuffix ".fis_luxor.fisluxor"
+
+        }
+        golden {
+            dimension "app"
+            resValue "string", "app_name", "golden"
+                           applicationIdSuffix ".golden"
+
+        }
+        smart {
+            dimension "app"
+            resValue "string", "app_name", "Smart School Egypt"
+                           applicationIdSuffix ".smartschool"
+
+        }
+        smartalex {
+            dimension "app"
+            resValue "string", "app_name", "Smart International School"
+                           applicationIdSuffix ".smartalex"
+
+        }
+        innovation {
+            dimension "app"
+            resValue "string", "app_name", "innovation"
+                           applicationIdSuffix ".innovation"
+
+        }
+        merryland {
+            dimension "app"
+            resValue "string", "app_name", "merryland"
+                           applicationIdSuffix ".merryland"
+
+        }
+        mdd {
+            dimension "app"
+            resValue "string", "app_name", "la Mère de Dieu"
+                           applicationIdSuffix ".MDD"
+
+        }
+        tibaac {
+            dimension "app"
+            resValue "string", "app_name", "Tiba language Academy"
+                           applicationIdSuffix ".tibaacademy"
+
+        }
+        stpeter {
+            dimension "app"
+            resValue "string", "app_name", "stpeter"
+                           applicationIdSuffix ".stpeter"
+
+        }
+        millennium {
+            dimension "app"
+            resValue "string", "app_name", "millennium"
+                           applicationIdSuffix ".millennium"
+
+        }
+        arama {
+            dimension "app"
+            resValue "string", "app_name", "arama"
+                           applicationIdSuffix ".arama"
+
+        }
+        harvard {
+            dimension "app"
+            resValue "string", "app_name", "harvard"
+                           applicationIdSuffix ".harvard"
+
+        }
+        galsmansoura {
+                dimension "app"
+                resValue "string", "app_name", "Gals Mansoura School"
+                            applicationIdSuffix ".galsmansoura"
+
+            }
     }
 }
 
@@ -68,4 +218,7 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.firebase:firebase-inappmessaging-display:17.2.0'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
 }

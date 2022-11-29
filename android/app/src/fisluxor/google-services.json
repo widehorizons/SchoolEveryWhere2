@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "893263686476",
+    "project_id": "fisluxor",
+    "storage_bucket": "fisluxor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893263686476:android:9d8ab88aeb7ace97a47de9",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.fis_luxor.fisluxor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893263686476-fjpaqdqb45libhb5q2i5lugpjanl2d28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.fis_luxor.fisluxor",
+            "certificate_hash": "cf7fd48420506b1b728e1f0c17b29763c0f15e22"
+          }
+        },
+        {
+          "client_id": "893263686476-e70gt1ga2gr74mej7ko2cn2bqo6elhq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAujJJqy9nQbJZ0C7g_vr9caBLpy7u08Lc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893263686476-e70gt1ga2gr74mej7ko2cn2bqo6elhq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

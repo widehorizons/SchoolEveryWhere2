@@ -1,14 +1,40 @@
 import 'package:flutter/material.dart';
 
-enum Flavor { staging, production }
+enum Flavor {
+  ARAMA,
+  ALEXDREAM,
+  ELQUDS,
+  GALSMANSOURA,
+  SCHOOLEVERYWHERE,
+  SMARTALEX,
+  BLS,
+  EURO,
+  ALROWAD,
+  GOLDEN,
+  TANTAROYAL,
+  INNOVATION,
+  MERRYLAND,
+  MDD,
+  ROYALHOUSE,
+  MILLENNIUM,
+  SPS,
+  TIBA
+}
 
 class FlavorValues {
   FlavorValues({
+    required this.storagePath,
+    required this.imagePath,
+    required this.schoolName,
+    required this.schoolWebsite,
     required this.baseUrl,
   });
 
   final String? baseUrl;
-
+  final String? schoolName;
+  final String? schoolWebsite;
+  final String? imagePath;
+  final String? storagePath;
   //Add other flavor specific values, e.g database name
 
 }
@@ -35,7 +61,8 @@ class FlavorConfig {
     return _instance!;
   }
 
-  static bool isProduction() => _instance!.flavor == Flavor.production;
+  static bool isSchoolEveryWhere() =>
+      _instance!.flavor == Flavor.SCHOOLEVERYWHERE;
 
-  static bool isStaging() => _instance!.flavor == Flavor.staging;
+  static bool isAlrowad() => _instance!.flavor == Flavor.ALROWAD;
 }

@@ -8,15 +8,41 @@ class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('LoginView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'LoginView is working',
-          style: TextStyle(fontSize: 20),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Expanded(
+              child: Container(
+                width: context.width,
+                color: Colors.amber,
+                child: Text(
+                  'LoginView is working',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: context.width,
+                color: Colors.orange,
+                child: Text(
+                  'LoginView is working',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: context.width,
+                color: Colors.deepOrange,
+                child: Text(
+                  'LoginView is working',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
