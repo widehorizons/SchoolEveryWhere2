@@ -175,9 +175,7 @@ class _MyAppState extends State<MyApp> {
           themeMode: ThemeMode.dark,
           theme: appLightTheme,
           locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
-              ? Locale("ar")
-
-              // Get.deviceLocale
+              ? Get.deviceLocale
               : Locale(
                   Prefs.getString(PrefsKeys.lang),
                 ),
