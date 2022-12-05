@@ -42,7 +42,6 @@ final Api = ApiClient();
 
 class ApiClient {
   final connectivity = Get.put(ConnectivityServices());
-
   Dio get dio {
     final dio = Dio(
       BaseOptions(

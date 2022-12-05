@@ -5,11 +5,10 @@
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'config/flavor_config.dart';
-import 'package:schooleverywhereV2/app/config/utils/flavor_config.dart';
-
 import 'app.dart';
 import 'package:flutter/material.dart';
-import 'inject.dart';
+import 'app/config/utils/flavor_config.dart';
+import 'app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

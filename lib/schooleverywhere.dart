@@ -6,11 +6,14 @@
 
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'config/flavor_config.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'app.dart';
 import 'package:flutter/material.dart';
 
+import 'app/config/utils/app_bloc_observer.dart';
 import 'app/config/utils/flavor_config.dart';
-import 'inject.dart';
+import 'app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +21,7 @@ Future<void> main() async {
   FlavorConfig(
       flavor: Flavor.SCHOOLEVERYWHERE,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-try.com/schooleverywhere/",
+        baseUrl: "https://schooleverywhere-try.com/new/",
         schoolName: 'Schooleverywhere',
         schoolWebsite: 'https://schooleverywhere-try.com/',
         imagePath: 'img/schooleverywhere.png',
@@ -60,5 +63,6 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  Bloc.observer = AppBlocObserver();
+  runApp(const MyApp());
 }

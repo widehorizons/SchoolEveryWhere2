@@ -1,5 +1,9 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:schooleverywhereV2/app/config/theme/theme.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -20,11 +24,13 @@ import 'package:get/get.dart';
 // import 'Student/ReceiveFromTeacher.dart';
 // import 'Student/StudentAssignments.dart';
 import 'app/config/Constants/prefs_keys.dart';
+import 'app/config/tr/message.dart';
 import 'app/config/utils/prefs.dart';
+import 'app/controllers/NetworkCubit/internet_cubit.dart';
 import 'app/routes/app_pages.dart';
-import 'firebase_config.dart';
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -149,27 +155,40 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // new MultiBlocProvider(
+    return MultiBlocProvider(
+        providers: [
+          // BlocProvider(create: (context) => ChatCubit()),
+          BlocProvider<InternetCubit>(
+            create: (internetCubitContext) => InternetCubit(),
+          ),
+        ],
+        // child: MultiProvider(
         //     providers: [
-        //       BlocProvider(create: (context) => ChatCubit()),
+        //       ChangeNotifierProvider(create: (_) => OnlineQuizProvider()),
         //     ],
-        //     child: MultiProvider(
-        //         providers: [
-        //           ChangeNotifierProvider(create: (_) => OnlineQuizProvider()),
-        //         ],
-        //         child:
-        GetMaterialApp(
-      title: "Application",
-      initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
-          ? Routes.HOME
-          : Routes.LOGIN,
-      getPages: AppPages.routes,
-      // theme: appLightTheme,
-      themeMode: ThemeMode.dark,
-      // darkTheme: appDarkTheme,
+        child: GetMaterialApp(
+          title: "Testing...",
+          initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
+              ? Routes.HOME
+              : Routes.LOGIN,
+          getPages: AppPages.routes,
+          themeMode: ThemeMode.dark,
+          theme: appLightTheme,
+          locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
+              ? Locale("ar")
 
-      // ))
-    );
+              // Get.deviceLocale
+              : Locale(
+                  Prefs.getString(PrefsKeys.lang),
+                ),
+          translations: Messages(),
+          supportedLocales: const [Locale('ar'), Locale('en'), Locale('fr')],
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          fallbackLocale: const Locale('en'),
+        ));
   }
 }

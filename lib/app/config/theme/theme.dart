@@ -22,6 +22,7 @@ class AppColors {
   static const stock = Color(0XFFF1F1F1);
 
   static const black = Color(0xFF000000);
+  static const lightGrey = Color(0xFFE1E1E1);
   static const gray1 = Color(0xFFF4F5F9);
   static const gray2 = Color(0xFFE0E0E0);
   static const grayBackground = Color(0xFFE5E5E5);
@@ -40,6 +41,7 @@ class AppColors {
 }
 
 ThemeData appLightTheme = ThemeData(
+    fontFamily: 'Cairo',
     primaryColor: AppColors.primaryColor,
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(

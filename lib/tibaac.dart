@@ -9,7 +9,7 @@ import 'app.dart';
 import 'package:flutter/material.dart';
 
 import 'app/config/utils/flavor_config.dart';
-import 'inject.dart';
+import 'app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

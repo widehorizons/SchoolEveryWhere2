@@ -8,10 +8,13 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
+  flutter_localizations:
+    sdk: flutter
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.5
   badges: ^2.0.3
+  flutter_bloc: ^7.0.1
   shared_preferences: ^2.0.15
   firebase_core: ^1.12.0
   google_maps_flutter: ^2.2.0
@@ -30,7 +33,21 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/Cairo-Light.ttf
+          weight: 200
+        - asset: assets/fonts/Cairo/Cairo-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/Cairo/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Cairo/Cairo-Black.ttf
+          weight: 900
   uses-material-design: true
   assets:
     - assets/
+    - assets/svg/
     - img/
