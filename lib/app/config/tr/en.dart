@@ -1,5 +1,6 @@
 Map<String, String> en = {
   "skip": "Skip",
+  "continue": "Continue",
   "ar": "اللغة العربية",
   "en": "English",
   "fr": "Français",

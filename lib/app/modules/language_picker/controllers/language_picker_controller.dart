@@ -1,23 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../config/Constants/prefs_keys.dart';
+import '../../../config/utils/prefs.dart';
+
 class LanguagePickerController extends GetxController {
-  //TODO: Implement LanguagePickerController
-
   final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  final hasSelectedLanguage = false.obs;
 
-  @override
-  void onReady() {
-    super.onReady();
+  void selectLanguage(Locale lang) {
+    hasSelectedLanguage.value = true;
+    Get.updateLocale(lang);
+    Prefs.setString(PrefsKeys.cookie, lang.languageCode);
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

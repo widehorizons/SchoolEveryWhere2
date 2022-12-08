@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../config/theme/app_colors.dart';
+
 class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
@@ -7,12 +9,12 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.isOutlined = false,
     this.isCircular = false,
-    this.color = Colors.blue,
+    this.color = AppColors.lightGreyBackground,
     this.borderColor = Colors.white,
     this.radius = 8,
-    this.height = 30,
-    this.width = 30,
-    this.backgroundColor = Colors.white,
+    this.height = 40,
+    this.width = 80,
+    this.backgroundColor = AppColors.primaryColor,
   }) : super(key: key);
 
   final Widget child;

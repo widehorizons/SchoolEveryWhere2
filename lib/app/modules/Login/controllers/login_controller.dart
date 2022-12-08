@@ -1,23 +1,12 @@
 import 'package:get/get.dart';
 
+import '../../../config/Constants/prefs_keys.dart';
+import '../../../config/utils/prefs.dart';
+import '../../../routes/app_pages.dart';
+
 class LoginController extends GetxController {
-  //TODO: Implement LoginController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void login() {
+    Prefs.setString(PrefsKeys.token, "token");
+    Get.toNamed(Routes.HOME);
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
