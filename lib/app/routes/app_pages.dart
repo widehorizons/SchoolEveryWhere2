@@ -6,6 +6,8 @@ import '../modules/chat_rooms/bindings/chat_rooms_binding.dart';
 import '../modules/chat_rooms/views/chat_rooms_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/language_picker/bindings/language_picker_binding.dart';
+import '../modules/language_picker/views/language_picker_view.dart';
 import '../modules/menu/bindings/menu_binding.dart';
 import '../modules/menu/views/menu_view.dart';
 import '../modules/notifications/bindings/notifications_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.LANGUAGE_PICKER,
+      page: () => const LanguagePickerView(),
+      binding: LanguagePickerBinding(),
     ),
   ];
 }

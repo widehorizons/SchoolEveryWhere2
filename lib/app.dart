@@ -1,14 +1,7 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:schooleverywhereV2/app/config/theme/theme.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import 'package:provider/provider.dart';
-// import 'package:schooleverywhere/Pages/health.dart';
 
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'Pages/ManagementPage.dart';
@@ -24,6 +17,7 @@ import 'package:schooleverywhereV2/app/config/theme/theme.dart';
 // import 'Student/ReceiveFromTeacher.dart';
 // import 'Student/StudentAssignments.dart';
 import 'app/config/Constants/prefs_keys.dart';
+import 'app/config/theme/theme.dart';
 import 'app/config/tr/message.dart';
 import 'app/config/utils/prefs.dart';
 import 'app/controllers/NetworkCubit/internet_cubit.dart';
@@ -122,7 +116,7 @@ class _MyAppState extends State<MyApp> {
   //       break;
   //     case "Reply Send to class":
   //       print("Notification Data For Chat ==================>> $messageData");
-  //       chatCubit.getAllMessages(
+  //       chatCubit.getAllLang(
   //           messageData['role'], messageData['id'], messageData['regno'],
   //           staffid: messageData['staffid']);
   //       break;
@@ -170,18 +164,18 @@ class _MyAppState extends State<MyApp> {
           title: "Testing...",
           initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
               ? Routes.HOME
-              : Routes.LOGIN,
+              : (Prefs.getString(PrefsKeys.lang).isEmpty)
+                  ? Routes.LANGUAGE_PICKER
+                  : Routes.LOGIN,
           getPages: AppPages.routes,
           themeMode: ThemeMode.dark,
           theme: appLightTheme,
           locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
-              ? Locale("ar")
-
-              // Get.deviceLocale
+              ? Get.deviceLocale
               : Locale(
                   Prefs.getString(PrefsKeys.lang),
                 ),
-          translations: Messages(),
+          translations: Lang(),
           supportedLocales: const [Locale('ar'), Locale('en'), Locale('fr')],
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
