@@ -10,11 +10,18 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return ScaffoldOvalClipper(
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            CustomButton(onPressed: controller.login, child: Text("login".tr))
-          ]),
+      child: SizedBox(
+        height: context.height,
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButton(
+                      onPressed: controller.login, child: Text("login".tr)),
+                ]),
+          ),
         ),
       ),
     );

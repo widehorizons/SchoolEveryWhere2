@@ -14,9 +14,9 @@ class ScaffoldOvalClipper extends StatelessWidget {
       child: Scaffold(
         body: Stack(alignment: Alignment.topCenter, children: [
           Align(
-            alignment: Alignment.center,
+            alignment: Alignment.bottomCenter,
             child: SizedBox(
-              height: context.height * 0.5,
+              height: context.height * 0.55,
               child: NotificationListener<OverscrollIndicatorNotification>(
                   onNotification: (overScroll) {
                     overScroll.disallowIndicator();

@@ -2,7 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:schooleverywhereV2/app/widgets/custom_drawer.dart';
+import '../../../widgets/custom_drawer.dart';
 
 import '../../../config/theme/theme.dart';
 import '../controllers/home_controller.dart';
@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
       drawer: const CustomDrawer(),
       floatingActionButton: FloatingActionButton(
           backgroundColor: AppColors.redDark,
-          onPressed: () {},
+          onPressed: () => controller.logOut(),
           child: const Icon(
             Icons.power_settings_new,
             color: AppColors.white,
