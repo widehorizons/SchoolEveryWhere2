@@ -5,5 +5,9 @@ Map<String, String> ar = {
   "en": "English",
   "fr": "Français",
   "looks_like_you're_offline": "يبدو أنك غير متصل بالإنترنت !!",
-  "make_sure_you_are_connected_first": "تأكد من إتصال جهازك بالإنترنت أولاً"
+  "make_sure_you_are_connected_first": "تأكد من إتصال جهازك بالإنترنت أولاً",
+  "login":"تسجيل الدخول",
+  "notifications":"الإشعارات",
+  "chat_rooms":"غرف المحادثة",
+  "profile":"الملف الشخصى",
 };
