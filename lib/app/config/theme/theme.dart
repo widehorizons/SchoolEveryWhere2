@@ -40,6 +40,28 @@ class AppColors {
   static const couponColor = Color(0xFFFEC65E);
 }
 
+TextTheme _lightTextTheme = TextTheme(
+  titleSmall: TextStyle(color: Colors.black),
+  titleMedium: TextStyle(color: Colors.black),
+  titleLarge: TextStyle(color: Colors.black),
+  bodySmall: TextStyle(color: Colors.black),
+  bodyMedium: TextStyle(color: Colors.black),
+  bodyLarge: TextStyle(color: Colors.black),
+  labelSmall: TextStyle(color: Colors.black),
+  labelMedium: TextStyle(color: Colors.black),
+  labelLarge: TextStyle(color: Colors.black),
+);
+TextTheme _darkTextTheme = TextTheme(
+  titleSmall: TextStyle(color: Colors.white),
+  titleMedium: TextStyle(color: Colors.white),
+  titleLarge: TextStyle(color: Colors.white),
+  bodySmall: TextStyle(color: Colors.white),
+  bodyMedium: TextStyle(color: Colors.white),
+  bodyLarge: TextStyle(color: Colors.white),
+  labelSmall: TextStyle(color: Colors.white),
+  labelMedium: TextStyle(color: Colors.white),
+  labelLarge: TextStyle(color: Colors.white),
+);
 ThemeData appLightTheme = ThemeData(
     fontFamily: 'Cairo',
     primaryColor: AppColors.primaryColor,
@@ -53,8 +75,8 @@ ThemeData appLightTheme = ThemeData(
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.primaryColor,
       elevation: 0,
-      titleTextStyle: const TextStyle(
-          fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600),
+      titleTextStyle: _darkTextTheme.titleLarge!
+          .copyWith(fontWeight: FontWeight.bold, fontFamily: 'Cairo'),
       iconTheme: IconThemeData(
         color: AppColors.white,
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../../widgets/custom_drawer.dart';
@@ -12,14 +11,11 @@ class ChatRoomsView extends GetView<ChatRoomsController> {
     return Scaffold(
       drawer: const CustomDrawer(),
       appBar: AppBar(
-        title: const Text('ChatRoomsView'),
+        title: Text('chat_rooms'.tr),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'ChatRoomsView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Center(
+        child: Container(),
       ),
     );
   }

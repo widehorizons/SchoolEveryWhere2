@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:schooleverywhereV2/app/config/Constants/dimensions.dart';
-import 'package:schooleverywhereV2/app/config/theme/theme.dart';
 
+import '../../../config/theme/theme.dart';
 import '../../../widgets/custom_drawer.dart';
-import '../../../widgets/day_night_greating.dart';
 import '../controllers/menu_controller.dart';
 
 class MenuView extends GetView<MenuController> {
@@ -34,7 +31,7 @@ class MenuView extends GetView<MenuController> {
               // DayNightGreetingBanner(),
               Center(
                 child: Text(
-                  'MenuView is working',
+                  '',
                   style: TextStyle(fontSize: 20),
                 ),
               ),

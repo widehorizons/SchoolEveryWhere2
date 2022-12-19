@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../../widgets/custom_drawer.dart';
@@ -10,16 +9,13 @@ class NotificationsView extends GetView<NotificationsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       appBar: AppBar(
-        title: const Text('NotificationsView'),
+        title: Text('notifications'.tr),
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'NotificationsView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+        child: Container(),
       ),
     );
   }

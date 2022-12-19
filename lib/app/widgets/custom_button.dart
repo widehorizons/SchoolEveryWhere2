@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../config/theme/app_colors.dart';
 
@@ -32,9 +33,9 @@ class CustomButton extends StatelessWidget {
     required Function() onPressed,
   }) {
     return CustomButton(
-      child: child,
       onPressed: onPressed,
       isCircular: true,
+      child: child,
     );
   }
   factory CustomButton.primary({
@@ -60,9 +61,9 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         style: isOutlined
             ? ElevatedButton.styleFrom(
-                elevation: 0,
-                primary: backgroundColor,
-                onPrimary: color, //?? AppTheme.appColor,
+                foregroundColor: color,
+                backgroundColor: context.theme.scaffoldBackgroundColor,
+                elevation: 0, //?? AppTheme.appColor,
                 shape: isCircular
                     ? CircleBorder(
                         side: BorderSide(color: borderColor ?? Colors.white),

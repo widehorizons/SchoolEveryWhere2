@@ -17,7 +17,7 @@ class HomeView extends GetView<HomeController> {
         drawer: const CustomDrawer(),
         floatingActionButton: FloatingActionButton(
             backgroundColor: AppColors.redDark,
-            onPressed: () => controller.logOut(),
+            onPressed: () => controller.confirmLogout(context),
             child: const Icon(
               Icons.power_settings_new,
               color: AppColors.white,
