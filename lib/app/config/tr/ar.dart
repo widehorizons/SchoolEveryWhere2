@@ -12,8 +12,8 @@ Map<String, String> ar = {
   "chat_rooms": "غرف المحادثة",
   "profile": "الملف الشخصى",
   "are_u_sure_to_sign_out": "هل أنت متأكد من تسجيل الخروج؟",
-  "you_will_need_to_login_next_time":
-      "ستحتاج لتسجيل الدخول مجدداً فى المرة المقبلة",
+  "you_will_need_to_login_next_time_you_use_the_app":
+      "ستحتاج لتسجيل الدخول مجدداً فى المرة المقبلةالتى تستخدم فيها التطبيق",
   "cancel": "إلغاء",
   "confirm": "تأكيد",
 };

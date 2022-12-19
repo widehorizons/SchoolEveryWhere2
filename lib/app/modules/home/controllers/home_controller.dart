@@ -37,12 +37,16 @@ class HomeController extends GetxController {
         builder: (BuildContext context) {
           return SimpleDialog(
             titlePadding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
-            title: Text('are_u_sure_to_sign_out'.tr),
+            title: Text(
+              'are_u_sure_to_sign_out'.tr,
+              style: context.textTheme.titleMedium!
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 20),
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("you_will_need_to_login_next_time".tr),
+                child: Text("you_will_need_to_login_next_time_you_use_the_app".tr),
               ),
               Row(
                 children: [

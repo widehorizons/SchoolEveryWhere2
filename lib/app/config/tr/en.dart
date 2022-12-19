@@ -12,7 +12,8 @@ Map<String, String> en = {
   "chat_rooms": "Chat Rooms",
   "profile": "Profile",
   "are_u_sure_to_sign_out": "Are You Sure to Logout?",
-  "you_will_need_to_login_next_time": "You Will need to login again next time",
+  "you_will_need_to_login_next_time_you_use_the_app":
+      "You Will need to login again next time You use the App",
   "cancel": "Cancel",
   "confirm": "Confirm",
 };
