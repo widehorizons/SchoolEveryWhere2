@@ -9,6 +9,7 @@ abstract class Routes {
   static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
   static const PROFILE = _Paths.PROFILE;
   static const LOGIN = _Paths.LOGIN;
+  static const LANGUAGE_PICKER = _Paths.LANGUAGE_PICKER;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const NOTIFICATIONS = '/notifications';
   static const PROFILE = '/profile';
   static const LOGIN = '/login';
+  static const LANGUAGE_PICKER = '/language-picker';
 }
