@@ -18,20 +18,7 @@ class MenuView extends GetView<MenuController> {
             iconTheme: IconThemeData(
               color: context.iconColor,
             ),
-            actions: [
-              Obx(
-                () => IconButton(
-                    splashRadius: 15,
-                    onPressed: controller.toggleDarkMode,
-                    icon: Icon(
-                      controller.isDarkMode.value
-                          ? Icons.light_mode
-                          : Icons.dark_mode,
-                      size: 25,
-                      color: context.iconColor,
-                    )),
-              )
-            ],
+            actions: [],
           ),
           drawer: const CustomDrawer(),
           body: SingleChildScrollView(

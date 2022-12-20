@@ -14,6 +14,8 @@ import '../modules/notifications/bindings/notifications_binding.dart';
 import '../modules/notifications/views/notifications_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/settings/bindings/settings_binding.dart';
+import '../modules/settings/views/settings_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.LANGUAGE_PICKER,
       page: () => const LanguagePickerView(),
       binding: LanguagePickerBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS,
+      page: () => const SettingsView(),
+      binding: SettingsBinding(),
     ),
   ];
 }

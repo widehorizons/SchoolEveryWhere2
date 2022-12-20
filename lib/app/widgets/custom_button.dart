@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
   final bool isCircular;
   final Color? color;
   final Color? backgroundColor;
-  final Color? borderColor;
+  final Color borderColor;
   final double radius;
   final double height;
   final double width;
@@ -66,12 +66,12 @@ class CustomButton extends StatelessWidget {
                 elevation: 0, //?? AppTheme.appColor,
                 shape: isCircular
                     ? CircleBorder(
-                        side: BorderSide(color: borderColor ?? Colors.white),
+                        side: BorderSide(color: borderColor, width: 1),
                       )
                     : RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(radius),
                         side: BorderSide(
-                            color: borderColor!), //?? AppTheme.appColor
+                            color: borderColor), //?? AppTheme.appColor
                       ),
                 minimumSize: Size(width, height),
               )
@@ -82,13 +82,13 @@ class CustomButton extends StatelessWidget {
                 shape: isCircular
                     ? CircleBorder(
                         side: BorderSide(
-                            color: borderColor!), // ?? AppTheme.appColor
+                            color: borderColor), // ?? AppTheme.appColor
                       )
                     : RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(radius),
                         side: BorderSide(
-                            color: borderColor!,
-                            width: 2), //?? AppTheme.appColor
+                            color: borderColor,
+                            width: 1), //?? AppTheme.appColor
                       ),
                 minimumSize: Size(width, height),
               ),

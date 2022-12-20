@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' hide Transition;
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:stacked_themes/stacked_themes.dart';
@@ -164,35 +164,37 @@ class _MyAppState extends State<MyApp> {
         child: ThemeBuilder(
             statusBarColorBuilder: (theme) => theme?.colorScheme.secondary,
             themes: ThemeConfig.getThemes(),
-            builder: (context, regularTheme, darkTheme, themeMode) =>
-                GetMaterialApp(
-                  title: "Testing...",
-                  initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
-                      ? Routes.HOME
-                      : (Prefs.getString(PrefsKeys.lang).isEmpty)
-                          ? Routes.LANGUAGE_PICKER
-                          : Routes.LOGIN,
-                  getPages: AppPages.routes,
-                  theme: regularTheme,
-                  darkTheme: darkTheme,
-                  themeMode: themeMode ?? ThemeMode.light,
-                  locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
-                      ? Get.deviceLocale
-                      : Locale(
-                          Prefs.getString(PrefsKeys.lang),
-                        ),
-                  translations: Lang(),
-                  supportedLocales: const [
-                    Locale('ar'),
-                    Locale('en'),
-                    Locale('fr')
-                  ],
-                  localizationsDelegates: const [
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  fallbackLocale: const Locale('en'),
-                )));
+            builder: (context, regularTheme, darkTheme, themeMode) {
+              Get.config(defaultTransition: Transition.cupertino);
+              return GetMaterialApp(
+                title: "Testing...",
+                initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
+                    ? Routes.HOME
+                    : (Prefs.getString(PrefsKeys.lang).isEmpty)
+                        ? Routes.LANGUAGE_PICKER
+                        : Routes.LOGIN,
+                getPages: AppPages.routes,
+                theme: regularTheme,
+                darkTheme: darkTheme,
+                themeMode: themeMode ?? ThemeMode.light,
+                locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
+                    ? Get.deviceLocale
+                    : Locale(
+                        Prefs.getString(PrefsKeys.lang),
+                      ),
+                translations: Lang(),
+                supportedLocales: const [
+                  Locale('ar'),
+                  Locale('en'),
+                  Locale('fr')
+                ],
+                localizationsDelegates: const [
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                fallbackLocale: const Locale('en'),
+              );
+            }));
   }
 }

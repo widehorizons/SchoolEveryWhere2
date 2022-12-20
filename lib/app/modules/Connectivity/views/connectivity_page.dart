@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:schooleverywhereV2/app/config/theme/theme.dart';
 
 import '../../../controllers/NetworkCubit/internet_cubit.dart';
 
@@ -26,7 +24,7 @@ class _ConnectivityPageState extends State<ConnectivityPage> {
       return WillPopScope(
           onWillPop: () async => false,
           child: Scaffold(
-              backgroundColor: AppColors.white,
+              backgroundColor: context.theme.scaffoldBackgroundColor,
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

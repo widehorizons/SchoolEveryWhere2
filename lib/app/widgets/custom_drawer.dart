@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stacked_themes/stacked_themes.dart';
 
 import '../config/theme/theme.dart';
-import '../config/theme/theme_setup.dart';
-import '../config/utils/prefs.dart';
 import '../routes/app_pages.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -29,25 +26,16 @@ class CustomDrawer extends StatelessWidget {
                   .copyWith(color: AppColors.white),
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text('Log Out'),
+            leading: const Icon(Icons.settings_outlined),
+            title: Text('settings'.tr),
             onTap: () {
-              Prefs.clear();
-              Get.offAllNamed(Routes.LOGIN);
+              Get.toNamed(Routes.SETTINGS);
             },
           ),
-          ...getThemeManager(context)
-              .themes!
-              .asMap()
-              .entries
-              .map((e) => ListTile(
-                    leading: const Icon(Icons.logout),
-                    title: Text(ThemeConfig.themes[e.key]),
-                    onTap: () {
-                      getThemeManager(context).selectThemeAtIndex(e.key);
-                    },
-                  ))
         ],
       ),
     );
