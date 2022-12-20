@@ -40,7 +40,7 @@ class AppColors {
   static const couponColor = Color(0xFFFEC65E);
 }
 
-TextTheme _lightTextTheme = TextTheme(
+TextTheme textTheme = TextTheme(
   titleSmall: TextStyle(color: Colors.black),
   titleMedium: TextStyle(color: Colors.black),
   titleLarge: TextStyle(color: Colors.black),
@@ -51,45 +51,3 @@ TextTheme _lightTextTheme = TextTheme(
   labelMedium: TextStyle(color: Colors.black),
   labelLarge: TextStyle(color: Colors.black),
 );
-TextTheme _darkTextTheme = TextTheme(
-  titleSmall: TextStyle(color: Colors.white),
-  titleMedium: TextStyle(color: Colors.white),
-  titleLarge: TextStyle(color: Colors.white),
-  bodySmall: TextStyle(color: Colors.white),
-  bodyMedium: TextStyle(color: Colors.white),
-  bodyLarge: TextStyle(color: Colors.white),
-  labelSmall: TextStyle(color: Colors.white),
-  labelMedium: TextStyle(color: Colors.white),
-  labelLarge: TextStyle(color: Colors.white),
-);
-ThemeData appLightTheme = ThemeData(
-    fontFamily: 'Cairo',
-    primaryColor: AppColors.primaryColor,
-    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      type: BottomNavigationBarType.fixed,
-      elevation: 20,
-      selectedItemColor: AppColors.primaryColor,
-      unselectedItemColor: Colors.grey,
-    ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.primaryColor,
-      elevation: 0,
-      titleTextStyle: _darkTextTheme.titleLarge!
-          .copyWith(fontWeight: FontWeight.bold, fontFamily: 'Cairo'),
-      iconTheme: IconThemeData(
-        color: AppColors.white,
-      ),
-      centerTitle: true,
-    ),
-    iconTheme: IconThemeData(
-      color: AppColors.primaryTypoColor,
-      size: 18,
-    ),
-    cardTheme: CardTheme(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-    ));
-
-ThemeData appDarkTheme = appLightTheme.copyWith(brightness: Brightness.dark);

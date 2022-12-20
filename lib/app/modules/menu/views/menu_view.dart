@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../config/theme/theme.dart';
 import '../../../widgets/custom_drawer.dart';
 import '../controllers/menu_controller.dart';
 
@@ -10,32 +9,43 @@ class MenuView extends GetView<MenuController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.scaffoldBackgroundColor,
-          iconTheme: const IconThemeData(color: AppColors.black),
-          actions: [
-            IconButton(
-                splashRadius: 15,
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.notifications_active,
-                  size: 25,
-                ))
-          ],
-        ),
-        drawer: const CustomDrawer(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: const [
-              // DayNightGreetingBanner(),
-              Center(
-                child: Text(
-                  '',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
+      child: Theme(
+        data: context.theme.copyWith(dividerColor: Colors.transparent),
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: context.theme.scaffoldBackgroundColor,
+            iconTheme: IconThemeData(
+              color: context.iconColor,
+            ),
+            actions: [
+              Obx(
+                () => IconButton(
+                    splashRadius: 15,
+                    onPressed: controller.toggleDarkMode,
+                    icon: Icon(
+                      controller.isDarkMode.value
+                          ? Icons.light_mode
+                          : Icons.dark_mode,
+                      size: 25,
+                      color: context.iconColor,
+                    )),
+              )
             ],
+          ),
+          drawer: const CustomDrawer(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: const [
+                // DayNightGreetingBanner(),
+                Center(
+                  child: Text(
+                    '',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

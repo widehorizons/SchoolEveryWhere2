@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:stacked_themes/stacked_themes.dart';
 
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'Pages/ManagementPage.dart';
@@ -17,7 +18,7 @@ import 'package:get/get.dart';
 // import 'Student/ReceiveFromTeacher.dart';
 // import 'Student/StudentAssignments.dart';
 import 'app/config/Constants/prefs_keys.dart';
-import 'app/config/theme/theme.dart';
+import 'app/config/theme/theme_setup.dart';
 import 'app/config/tr/message.dart';
 import 'app/config/utils/prefs.dart';
 import 'app/controllers/NetworkCubit/internet_cubit.dart';
@@ -160,29 +161,38 @@ class _MyAppState extends State<MyApp> {
         //     providers: [
         //       ChangeNotifierProvider(create: (_) => OnlineQuizProvider()),
         //     ],
-        child: GetMaterialApp(
-          title: "Testing...",
-          initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
-              ? Routes.HOME
-              : (Prefs.getString(PrefsKeys.lang).isEmpty)
-                  ? Routes.LANGUAGE_PICKER
-                  : Routes.LOGIN,
-          getPages: AppPages.routes,
-          themeMode: ThemeMode.dark,
-          theme: appLightTheme,
-          locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
-              ? Get.deviceLocale
-              : Locale(
-                  Prefs.getString(PrefsKeys.lang),
-                ),
-          translations: Lang(),
-          supportedLocales: const [Locale('ar'), Locale('en'), Locale('fr')],
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          fallbackLocale: const Locale('en'),
-        ));
+        child: ThemeBuilder(
+            statusBarColorBuilder: (theme) => theme?.colorScheme.secondary,
+            themes: ThemeConfig.getThemes(),
+            builder: (context, regularTheme, darkTheme, themeMode) =>
+                GetMaterialApp(
+                  title: "Testing...",
+                  initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
+                      ? Routes.HOME
+                      : (Prefs.getString(PrefsKeys.lang).isEmpty)
+                          ? Routes.LANGUAGE_PICKER
+                          : Routes.LOGIN,
+                  getPages: AppPages.routes,
+                  theme: regularTheme,
+                  darkTheme: darkTheme,
+                  themeMode: themeMode ?? ThemeMode.light,
+                  locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
+                      ? Get.deviceLocale
+                      : Locale(
+                          Prefs.getString(PrefsKeys.lang),
+                        ),
+                  translations: Lang(),
+                  supportedLocales: const [
+                    Locale('ar'),
+                    Locale('en'),
+                    Locale('fr')
+                  ],
+                  localizationsDelegates: const [
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  fallbackLocale: const Locale('en'),
+                )));
   }
 }

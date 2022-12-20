@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
       child: Scaffold(
         drawer: const CustomDrawer(),
         floatingActionButton: FloatingActionButton(
-            backgroundColor: AppColors.redDark,
+            backgroundColor: context.theme.errorColor,
             onPressed: () => controller.confirmLogout(context),
             child: const Icon(
               Icons.power_settings_new,
@@ -36,7 +36,7 @@ class HomeView extends GetView<HomeController> {
                       icon: Icon(
                         Icons.maps_home_work_rounded,
                         color: (controller.index.value == 0)
-                            ? AppColors.primaryColor
+                            ? context.theme.primaryColor
                             : AppColors.secondaryTypoColor,
                       ),
                       onPressed: () => controller.changeIndex(0),
@@ -48,7 +48,7 @@ class HomeView extends GetView<HomeController> {
                       icon: Icon(
                         Icons.chat,
                         color: controller.index.value == 1
-                            ? AppColors.primaryColor
+                            ? context.theme.primaryColor
                             : AppColors.secondaryTypoColor,
                       ),
                       onPressed: () => controller.changeIndex(1),
@@ -73,7 +73,7 @@ class HomeView extends GetView<HomeController> {
                         child: Icon(
                           Icons.notifications,
                           color: controller.index.value == 2
-                              ? AppColors.primaryColor
+                              ? context.theme.primaryColor
                               : AppColors.secondaryTypoColor,
                         ),
                       ),
@@ -86,7 +86,7 @@ class HomeView extends GetView<HomeController> {
                       icon: Icon(
                         Icons.person,
                         color: controller.index.value == 3
-                            ? AppColors.primaryColor
+                            ? context.theme.primaryColor
                             : AppColors.secondaryTypoColor,
                       ),
                       onPressed: () => controller.changeIndex(3),
