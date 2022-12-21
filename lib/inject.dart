@@ -6,11 +6,10 @@ import 'package:stacked_themes/stacked_themes.dart';
 
 Future<void> boot() async {
   /// ensure fulutter is initalized with the native platform
-  ///   await ThemeManager.initialise();
 
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(await SharedPreferences.getInstance());
   await ThemeManager.initialise();
+  Get.put(await SharedPreferences.getInstance());
 
   Get.put(Connectivity());
   Get.put(ThemeService.getInstance());

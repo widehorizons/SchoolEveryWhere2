@@ -9,13 +9,15 @@ import 'package:flutter/material.dart';
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'config/flavor_config.dart';
 import '../app.dart';
+import '../app/config/theme/theme_setup.dart';
 import '../app/config/utils/flavor_config.dart';
-import '../app/config/utils/inject.dart';
+import '../inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
+      theme: ThemeConfig.defaultTheme,
       flavor: Flavor.mdd,
       values: FlavorValues(
         baseUrl: "https://schooleverywhere-mdd.com/schooleverywhere1/",

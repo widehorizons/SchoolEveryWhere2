@@ -18,8 +18,11 @@ import 'package:stacked_themes/stacked_themes.dart';
 // import 'Student/ReceiveFromTeacher.dart';
 // import 'Student/StudentAssignments.dart';
 import 'app/config/Constants/prefs_keys.dart';
+import 'app/config/theme/app_colors.dart';
 import 'app/config/theme/theme_setup.dart';
-import 'app/config/tr/message.dart';
+import 'app/config/tr/lang.dart';
+import 'app/config/tr/lang_controller.dart';
+import 'app/config/utils/flavor_config.dart';
 import 'app/config/utils/prefs.dart';
 import 'app/controllers/NetworkCubit/internet_cubit.dart';
 import 'app/routes/app_pages.dart';
@@ -44,6 +47,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
     // getLoggedInUser();
     // chatCubit = BlocProvider.of<ChatCubit>(context);
     // FirebaseMessaging.instance
@@ -164,20 +168,38 @@ class _MyAppState extends State<MyApp> {
         child: ThemeBuilder(
             statusBarColorBuilder: (theme) => theme?.colorScheme.secondary,
             themes: ThemeConfig.getThemes(),
+            lightTheme: FlavorConfig.instance.theme,
+            darkTheme: ThemeData.dark().copyWith(
+                appBarTheme: FlavorConfig.instance.theme.appBarTheme,
+                bottomNavigationBarTheme: FlavorConfig
+                    .instance.theme.bottomNavigationBarTheme
+                    .copyWith(
+                        selectedIconTheme:
+                            const IconThemeData(color: Colors.white)),
+                iconTheme: FlavorConfig.instance.theme.iconTheme
+                    .copyWith(color: Colors.white),
+                colorScheme: FlavorConfig.instance.theme.colorScheme
+                    .copyWith(secondary: AppColors.primaryColor),
+                textTheme: FlavorConfig.instance.theme.textTheme.apply(
+                    fontFamily: 'Cairo',
+                    displayColor: Colors.white,
+                    bodyColor: Colors.white)),
+            defaultThemeMode: ThemeMode.system,
             builder: (context, regularTheme, darkTheme, themeMode) {
-              Get.config(defaultTransition: Transition.cupertino);
+              Get.config(defaultTransition: Transition.rightToLeftWithFade);
               return GetMaterialApp(
                 title: "Testing...",
                 initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
                     ? Routes.HOME
-                    : ((Prefs.getString(PrefsKeys.lang).isEmpty)
-                        ? Routes.LANGUAGE_PICKER
-                        : Routes.LOGIN),
+                    : Routes.LANGUAGE_PICKER,
+                // ((Prefs.getString(PrefsKeys.lang).isEmpty)
+                //     ? Routes.LANGUAGE_PICKER
+                //     : Routes.LOGIN)
                 getPages: AppPages.routes,
                 theme: regularTheme,
                 darkTheme: darkTheme,
-                themeMode: themeMode ?? ThemeMode.light,
-                locale: Lang.initialLanguage,
+                themeMode: themeMode ?? ThemeMode.system,
+                locale: LanguageController.initialLanguage,
                 translations: Lang(),
                 supportedLocales: const [
                   Locale('ar'),

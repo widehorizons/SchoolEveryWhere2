@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../config/tr/message.dart';
+import '../../../config/tr/lang.dart';
 import '../../../widgets/custom_button.dart';
 import '../controllers/settings_controller.dart';
 
@@ -13,6 +13,7 @@ class SettingsView extends GetView<SettingsController> {
     return Scaffold(
       appBar: AppBar(
         title: Text('settings'.tr),
+        backgroundColor: context.theme.appBarTheme.backgroundColor,
         leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios_new_outlined),
             onPressed: () => Get.back()),
@@ -27,7 +28,7 @@ class SettingsView extends GetView<SettingsController> {
               Container(
                 padding: const EdgeInsets.only(top: 20),
                 width: double.infinity,
-                color: context.theme.scaffoldBackgroundColor,
+                // color: context.theme.scaffoldBackgroundColor,
                 child: Column(children: [
                   const CircleAvatar(
                       radius: 60,
@@ -81,9 +82,10 @@ class SettingsView extends GetView<SettingsController> {
                       title: Text('dark_mode'.tr),
                       trailing: CupertinoSwitch(
                         value: controller.isDarkMode.value,
-                        onChanged: (value) => controller.toggleDarkMode(),
+                        onChanged: (value) =>
+                            controller.toggleDarkMode(context),
                       ),
-                      onTap: () => controller.toggleDarkMode(),
+                      onTap: () => controller.toggleDarkMode(context),
                     )),
                 ListTile(
                   leading: Icon(

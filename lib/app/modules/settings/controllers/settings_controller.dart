@@ -1,21 +1,30 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stacked_themes/stacked_themes.dart';
+
+import '../../../config/tr/lang_controller.dart';
 
 class SettingsController extends GetxController {
   Rx<bool> isDarkMode = Get.isDarkMode.obs;
   Rx<String> dropdownvalue = Get.locale!.languageCode.obs;
-  void toggleDarkMode() {
+  void toggleDarkMode(BuildContext context) {
     isDarkMode.value = !isDarkMode.value;
-    if (isDarkMode.value) {
-      Get.changeTheme(ThemeData.dark());
-    } else {
-      Get.changeTheme(ThemeData.light());
-    }
+    getThemeManager(context).toggleDarkLightTheme();
+    log("${getThemeManager(context).isDarkMode} ${getThemeManager(context).lightTheme} ${getThemeManager(context).getSelectedTheme().selectedTheme} ${getThemeManager(context).themes} ${getThemeManager(context).darkTheme} ${getThemeManager(context).initialTheme.selectedTheme} ${getThemeManager(context).initialTheme.themeMode}");
+
     update();
+    // if (isDarkMode.value) {
+    //   getThemeManager(context).setThemeMode(ThemeMode.dark);
+    // } else {
+    //   getThemeManager(context).setThemeMode(ThemeMode.light);
+    // }
   }
 
   changeLanguage(String languageCode) {
-    Get.updateLocale(Locale(languageCode));
+    LanguageController.updateLang(Locale(languageCode));
+    update();
   }
 
   final count = 0.obs;

@@ -7,13 +7,15 @@
 import 'package:flutter/material.dart';
 
 import '../app.dart';
+import '../app/config/theme/theme_setup.dart';
 import '../app/config/utils/flavor_config.dart';
-import '../app/config/utils/inject.dart';
+import '../inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
+      theme: ThemeConfig.defaultTheme,
       flavor: Flavor.arama,
       values: FlavorValues(
         baseUrl: "https://www.schooleverywhere-arama.com/schooleverywhere/",

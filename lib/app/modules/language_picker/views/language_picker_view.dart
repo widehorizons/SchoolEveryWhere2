@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../config/theme/app_colors.dart';
-import '../../../config/tr/message.dart';
+import '../../../config/tr/lang.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/scaffold_oval_clipper.dart';
@@ -25,7 +23,6 @@ class LanguagePickerView extends GetView<LanguagePickerController> {
                 child: ListView.builder(
                   itemCount: Lang().keys.length,
                   itemBuilder: (context, index) {
-                    log(Lang().keys.keys.elementAt(index).toString());
                     final String lang = Lang().keys.keys.elementAt(index);
                     return CustomButton(
                         backgroundColor: AppColors.primaryColor,
@@ -35,27 +32,25 @@ class LanguagePickerView extends GetView<LanguagePickerController> {
                         onPressed: () =>
                             controller.selectLanguage(Locale(lang)),
                         child: Text(
-                          lang.tr, //Lang().keys[index].toString()).tr
+                          lang.tr,
                         ));
                   },
                 )),
-            Obx(
-              () => Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  child: controller.hasSelectedLanguage.value
-                      ? TextButton(
-                          onPressed: () => Get.toNamed(Routes.LOGIN),
-                          child: Text("continue".tr),
-                        )
-                      : TextButton(
-                          onPressed: () {},
-                          child: Text("skip".tr),
-                        ),
-                ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                child: controller.hasSelectedLanguage.value
+                    ? TextButton(
+                        onPressed: () => Get.toNamed(Routes.LOGIN),
+                        child: Text("continue".tr),
+                      )
+                    : TextButton(
+                        onPressed: () {},
+                        child: Text("skip".tr),
+                      ),
               ),
-            )
+            ),
           ],
         ),
       ),

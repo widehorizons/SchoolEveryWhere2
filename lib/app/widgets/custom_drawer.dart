@@ -30,7 +30,8 @@ class CustomDrawer extends StatelessWidget {
             height: 20,
           ),
           ListTile(
-            leading: const Icon(Icons.settings_outlined),
+            leading: Icon(Icons.settings_outlined,
+                color: context.theme.iconTheme.color),
             title: Text('settings'.tr),
             onTap: () {
               Get.toNamed(Routes.SETTINGS);

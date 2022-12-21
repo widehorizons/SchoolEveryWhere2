@@ -44,17 +44,20 @@ class FlavorValues {
 class FlavorConfig {
   final Flavor flavor;
   final String name;
+  final ThemeData theme;
   final FlavorValues values;
 
   static FlavorConfig? _instance;
 
   factory FlavorConfig(
-      {@required Flavor? flavor, @required FlavorValues? values}) {
-    _instance ??= FlavorConfig._internal(flavor!, flavor.name, values!);
+      {@required Flavor? flavor,
+      required ThemeData theme,
+      @required FlavorValues? values}) {
+    _instance ??= FlavorConfig._internal(flavor!, flavor.name, theme, values!);
     return _instance!;
   }
 
-  FlavorConfig._internal(this.flavor, this.name, this.values);
+  FlavorConfig._internal(this.flavor, this.name, this.theme, this.values);
 
   static FlavorConfig get instance {
     return _instance!;

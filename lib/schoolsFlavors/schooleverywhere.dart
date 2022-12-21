@@ -16,15 +16,17 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../app.dart';
+import '../app/config/theme/theme_setup.dart';
 import '../app/config/utils/app_bloc_observer.dart';
 import '../app/config/utils/firebase_config.dart';
 import '../app/config/utils/flavor_config.dart';
-import '../app/config/utils/inject.dart';
+import '../inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
+      theme: ThemeConfig.defaultTheme,
       flavor: Flavor.schooleverywhere,
       values: FlavorValues(
         baseUrl: "https://schooleverywhere-try.com/new/",
