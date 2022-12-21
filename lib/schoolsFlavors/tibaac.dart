@@ -3,29 +3,32 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
 // import 'Chat/cubit/chatcubit_cubit.dart';
-import 'app.dart';
+// import 'config/flavor_config.dart';
 import 'package:flutter/material.dart';
 
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.SMARTALEX,
+      flavor: Flavor.tiba,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-smartalex.com/schooleverywhere/",
-        schoolName: 'Smart Alex School',
-        imagePath: 'img/smartAlex.png',
-        schoolWebsite: 'https://www.smartalex.school/',
-        storagePath: '/data/user/0/com.schooleverywhere.smartalex',
+        baseUrl: "https://schooleverywhere-tibaacademy.com/schooleverywhere/",
+        schoolName: 'Tiba language Academy',
+        imagePath: 'img/tiba.png',
+        schoolWebsite: 'https://tiba.academy/',
+        storagePath: '/data/user/0/com.schooleverywhere.tibaacademy',
       ));
 
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  // // Bloc.observer = AppBlocObserver();
+
   // await Firebase.initializeApp();
+
   // NotificationSettings settings =
   //     await FirebaseMessaging.instance.requestPermission(
   //   alert: true,
@@ -58,5 +61,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

@@ -18,7 +18,7 @@ class MenuView extends GetView<MenuController> {
             iconTheme: IconThemeData(
               color: context.iconColor,
             ),
-            actions: [],
+            actions: const [],
           ),
           drawer: const CustomDrawer(),
           body: SingleChildScrollView(

@@ -8,21 +8,21 @@
 // import 'config/flavor_config.dart';
 import 'package:flutter/material.dart';
 
-import 'app.dart';
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.ALEXDREAM,
+      flavor: Flavor.elquds,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-alexdream.com/schooleverywhere/",
-        schoolName: 'Alex Dream Language School',
-        imagePath: 'img/alexdream.png',
-        schoolWebsite: 'https://schooleverywhere-alexdream.com/',
-        storagePath: '/data/user/0/com.schooleverywhere.alexdream',
+        baseUrl: "https://schooleverywhere-elquds.com/schooleverywhere/",
+        schoolName: 'Elquds Schools',
+        imagePath: 'img/elquds.png',
+        schoolWebsite: 'https://www.elquds-schools.com/',
+        storagePath: '/data/user/0/com.schooleverywhere.elquds',
       ));
 
   // WidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +42,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(
-      // new BlocProvider(create: (context) => ChatCubit(), child:
-      MyApp());
+  runApp(const MyApp());
 }

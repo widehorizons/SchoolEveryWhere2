@@ -24,7 +24,7 @@ class LoginService {
     }
     // Prefs.setMap(PrefsKeys.userModel, User.fromJson(res.data['data']).toMap());
     // log((Prefs.getMap(PrefsKeys.userModel).toString()).toString());
-    // Prefs.setString(PrefsKeys.token, res.data['data']['token']);
+    Prefs.setString(PrefsKeys.token, 'ABCD');
     // return UserModel.fromJson(res.data['data']);
   }
 }

@@ -4,28 +4,28 @@
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-// import 'Chat/cubit/chatcubit_cubit.dart';
-// import 'config/flavor_config.dart';
-import 'app.dart';
 import 'package:flutter/material.dart';
 
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+// import 'Chat/cubit/chatcubit_cubit.dart';
+// import 'config/flavor_config.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.MILLENNIUM,
+      flavor: Flavor.mdd,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-millennium.com/schooleverywhere/",
-        schoolName: 'millennium Language School',
-        schoolWebsite: 'https://mls.school/',
-        storagePath: '/data/user/0/com.schooleverywhere.millennium',
-        imagePath: 'img/millennium.png',
+        baseUrl: "https://schooleverywhere-mdd.com/schooleverywhere1/",
+        schoolName: 'la Mère de Dieu',
+        schoolWebsite: 'https://www.cmdalex.com/',
+        storagePath: '/data/user/0/com.schooleverywhere.MDD',
+        imagePath: 'img/mdd.jpg',
       ));
 
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
   // // Bloc.observer = AppBlocObserver();
   // NotificationSettings settings =
@@ -60,5 +60,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

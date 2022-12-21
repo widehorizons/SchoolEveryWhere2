@@ -4,22 +4,25 @@
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'Chat/cubit/chatcubit_cubit.dart';
+// import 'config/flavor_config.dart';
+
 import 'package:flutter/material.dart';
-import 'app.dart';
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.EURO,
+      flavor: Flavor.tantaroyal,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-euroschools.com/schooleverywhere/",
-        schoolName: 'Euro Schools',
-        imagePath: 'img/euro.png',
-        schoolWebsite: 'https://euroschoolsalex.com/',
-        storagePath: '/data/user/0/com.schooleverywhere.ESASchools',
+        baseUrl: "https://schooleverywhere-fisluxor.com/schooleverywhere/",
+        schoolName: 'Future International School',
+        imagePath: 'img/fisLuxor.png',
+        schoolWebsite: 'https://fis-luxor.com/index.html',
+        storagePath: '/data/user/0/com.schooleverywhere.tantaroyal.tantaroyal',
       ));
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,5 +62,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

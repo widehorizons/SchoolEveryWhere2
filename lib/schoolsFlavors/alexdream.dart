@@ -3,48 +3,31 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
 // import 'Chat/cubit/chatcubit_cubit.dart';
-import 'app.dart';
+// import 'config/flavor_config.dart';
 import 'package:flutter/material.dart';
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.TANTAROYAL,
+      flavor: Flavor.alexdream,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-tantaroyal.com/schooleverywhere/",
-        schoolName: 'Tanta Royal School ',
-        imagePath: 'img/tantaroyal.png',
-        schoolWebsite: 'https://tanta-royal.com/',
-        storagePath: '/data/user/0/com.schooleverywhere.tantaroyal.tantaroyal',
+        baseUrl: "https://schooleverywhere-alexdream.com/schooleverywhere/",
+        schoolName: 'Alex Dream Language School',
+        imagePath: 'img/alexdream.png',
+        schoolWebsite: 'https://schooleverywhere-alexdream.com/',
+        storagePath: '/data/user/0/com.schooleverywhere.alexdream',
       ));
 
   // WidgetsFlutterBinding.ensureInitialized();
-  // // Bloc.observer = AppBlocObserver();
-
   // await Firebase.initializeApp();
-
-  // NotificationSettings settings =
-  //     await FirebaseMessaging.instance.requestPermission(
-  //   alert: true,
-  //   announcement: false,
-  //   badge: true,
-  //   carPlay: false,
-  //   criticalAlert: false,
-  //   provisional: false,
-  //   sound: true,
-  // );
-
-  // if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-  //   print('User granted permission');
-  // } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
-  //   print('User granted provisional permission');
-  // } else {
-  //   print('User declined or has not accepted permission');
-  // }
+  // // Bloc.observer = AppBlocObserver();
 
   // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
@@ -59,5 +42,7 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(
+      // new BlocProvider(create: (context) => ChatCubit(), child:
+      const MyApp());
 }

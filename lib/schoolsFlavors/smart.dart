@@ -3,31 +3,30 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import '../firebase_config.dart';
-// import 'Chat/cubit/chatcubit_cubit.dart';
+
 import 'package:flutter/material.dart';
-import 'app.dart';
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+
+// import 'config/flavor_config.dart';
+// import 'Chat/cubit/chatcubit_cubit.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.INNOVATION,
+      flavor: Flavor.smart,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-innovation.com/schooleverywhere/",
-        schoolName: 'Innovation International School',
-        imagePath: 'img/innovation.png',
-        schoolWebsite: 'https://innovation-schools.com/',
-        storagePath: '/data/user/0/com.schooleverywhere.innovation',
+        baseUrl: "https://schooleverywhere-smart.com/schooleverywhere/",
+        schoolName: 'Smart School Egypt',
+        imagePath: 'img/smart.png',
+        schoolWebsite: 'http://smartschool-egy.com/',
+        storagePath: '/data/user/0/com.schooleverywhere.schooleverywhere',
       ));
 
-  WidgetsFlutterBinding.ensureInitialized();
-  // Bloc.observer = AppBlocObserver();
-
+  // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
-
   // NotificationSettings settings =
   //     await FirebaseMessaging.instance.requestPermission(
   //   alert: true,
@@ -60,5 +59,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

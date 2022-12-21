@@ -10,7 +10,7 @@ class LanguagePickerController extends GetxController {
 
   void selectLanguage(Locale lang) {
     hasSelectedLanguage.value = true;
+    Prefs.setString(PrefsKeys.lang, lang.languageCode);
     Get.updateLocale(lang);
-    Prefs.setString(PrefsKeys.cookie, lang.languageCode);
   }
 }

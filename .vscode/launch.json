@@ -6,16 +6,11 @@
     "configurations": [
         {
             "name": "schooleverywhere",
-            "program": "lib/schooleverywhere.dart",
+            "program": "lib/schoolsFlavors/schooleverywhere.dart",
             "request": "launch",
             "type": "dart",
             "args": ["--flavor","dev"]
         },
-        {
-            "name": "schooleverywhere (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        }
+      
     ]
 }

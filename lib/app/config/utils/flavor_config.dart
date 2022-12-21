@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
 enum Flavor {
-  ARAMA,
-  ALEXDREAM,
-  ELQUDS,
-  GALSMANSOURA,
-  SCHOOLEVERYWHERE,
-  SMARTALEX,
-  BLS,
-  EURO,
-  ALROWAD,
-  GOLDEN,
-  TANTAROYAL,
-  INNOVATION,
-  MERRYLAND,
-  MDD,
-  ROYALHOUSE,
-  MILLENNIUM,
-  SPS,
-  TIBA
+  arama,
+  alexdream,
+  elquds,
+  galasmansoura,
+  schooleverywhere,
+  smartalex,
+  smart,
+  bls,
+  euro,
+  alrowad,
+  golden,
+  harvard,
+  tantaroyal,
+  innovation,
+  merryland,
+  mdd,
+  royalhouse,
+  millennium,
+  sps,
+  tiba
 }
 
 class FlavorValues {
@@ -42,27 +44,24 @@ class FlavorValues {
 class FlavorConfig {
   final Flavor flavor;
   final String name;
-  final Color color;
   final FlavorValues values;
 
   static FlavorConfig? _instance;
 
   factory FlavorConfig(
-      {@required Flavor? flavor,
-      Color color: Colors.blue,
-      @required FlavorValues? values}) {
-    _instance ??= FlavorConfig._internal(flavor!, flavor.name, color, values!);
+      {@required Flavor? flavor, @required FlavorValues? values}) {
+    _instance ??= FlavorConfig._internal(flavor!, flavor.name, values!);
     return _instance!;
   }
 
-  FlavorConfig._internal(this.flavor, this.name, this.color, this.values);
+  FlavorConfig._internal(this.flavor, this.name, this.values);
 
   static FlavorConfig get instance {
     return _instance!;
   }
 
   static bool isSchoolEveryWhere() =>
-      _instance!.flavor == Flavor.SCHOOLEVERYWHERE;
+      _instance!.flavor == Flavor.schooleverywhere;
 
-  static bool isAlrowad() => _instance!.flavor == Flavor.ALROWAD;
+  static bool isAlrowad() => _instance!.flavor == Flavor.alrowad;
 }

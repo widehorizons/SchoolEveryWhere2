@@ -6,28 +6,45 @@
 
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'config/flavor_config.dart';
-import 'app.dart';
 import 'package:flutter/material.dart';
 
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.GALSMANSOURA,
+      flavor: Flavor.bls,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-galsmansoura.com/schooleverywhere/",
-        schoolName: 'Gals Mansoura School',
-        imagePath: 'img/galsmansoura.png',
-        schoolWebsite: 'https://www.gals-mansoura.com/',
-        storagePath: '/data/user/0/com.schooleverywhere.galsmansoura',
+        baseUrl: "https://schooleverywhere-blsegypt.com/schooleverywhere/",
+        schoolName: 'British Language School',
+        imagePath: 'img/blsegypt.png',
+        schoolWebsite: 'http://blsegypt.net/',
+        storagePath: '/data/user/0/com.schooleverywhere.blsegypt',
       ));
 
   // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
-  // // Bloc.observer = AppBlocObserver();
+  // NotificationSettings settings =
+  //     await FirebaseMessaging.instance.requestPermission(
+  //   alert: true,
+  //   announcement: false,
+  //   badge: true,
+  //   carPlay: false,
+  //   criticalAlert: false,
+  //   provisional: false,
+  //   sound: true,
+  // );
+
+  // if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+  //   print('User granted permission');
+  // } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
+  //   print('User granted provisional permission');
+  // } else {
+  //   print('User declined or has not accepted permission');
+  // }
 
   // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
@@ -42,5 +59,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

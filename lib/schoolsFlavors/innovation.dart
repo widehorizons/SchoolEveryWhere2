@@ -3,30 +3,32 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
+// import '../firebase_config.dart';
 // import 'Chat/cubit/chatcubit_cubit.dart';
-// import 'config/flavor_config.dart';
-import 'app.dart';
 import 'package:flutter/material.dart';
-import 'app/config/utils/inject.dart';
-import 'app/config/utils/flavor_config.dart';
+
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.MERRYLAND,
+      flavor: Flavor.innovation,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-merryland.com/schooleverywhere/",
-        schoolName: 'Merryland International School',
-        schoolWebsite: 'https://merryland-school.com/',
-        storagePath: '/data/user/0/com.schooleverywhere.merryland',
-        imagePath: 'img/merryland.png',
+        baseUrl: "https://schooleverywhere-innovation.com/schooleverywhere/",
+        schoolName: 'Innovation International School',
+        imagePath: 'img/innovation.png',
+        schoolWebsite: 'https://innovation-schools.com/',
+        storagePath: '/data/user/0/com.schooleverywhere.innovation',
       ));
 
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  // Bloc.observer = AppBlocObserver();
+
   // await Firebase.initializeApp();
-  // // Bloc.observer = AppBlocObserver();
+
   // NotificationSettings settings =
   //     await FirebaseMessaging.instance.requestPermission(
   //   alert: true,
@@ -59,5 +61,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

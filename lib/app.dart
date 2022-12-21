@@ -170,18 +170,14 @@ class _MyAppState extends State<MyApp> {
                 title: "Testing...",
                 initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)
                     ? Routes.HOME
-                    : (Prefs.getString(PrefsKeys.lang).isEmpty)
+                    : ((Prefs.getString(PrefsKeys.lang).isEmpty)
                         ? Routes.LANGUAGE_PICKER
-                        : Routes.LOGIN,
+                        : Routes.LOGIN),
                 getPages: AppPages.routes,
                 theme: regularTheme,
                 darkTheme: darkTheme,
                 themeMode: themeMode ?? ThemeMode.light,
-                locale: (Prefs.getString(PrefsKeys.lang).isEmpty)
-                    ? Get.deviceLocale
-                    : Locale(
-                        Prefs.getString(PrefsKeys.lang),
-                      ),
+                locale: Lang.initialLanguage,
                 translations: Lang(),
                 supportedLocales: const [
                   Locale('ar'),

@@ -3,32 +3,31 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import 'Chat/cubit/chatcubit_cubit.dart';
-// import 'config/flavor_config.dart';
-import 'app.dart';
+
 import 'package:flutter/material.dart';
 
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+// import 'Chat/cubit/chatcubit_cubit.dart';
+// import 'config/flavor_config.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.TIBA,
+      flavor: Flavor.merryland,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-tibaacademy.com/schooleverywhere/",
-        schoolName: 'Tiba language Academy',
-        imagePath: 'img/tiba.png',
-        schoolWebsite: 'https://tiba.academy/',
-        storagePath: '/data/user/0/com.schooleverywhere.tibaacademy',
+        baseUrl: "https://schooleverywhere-merryland.com/schooleverywhere/",
+        schoolName: 'Merryland International School',
+        schoolWebsite: 'https://merryland-school.com/',
+        storagePath: '/data/user/0/com.schooleverywhere.merryland',
+        imagePath: 'img/merryland.png',
       ));
 
-  WidgetsFlutterBinding.ensureInitialized();
-  // // Bloc.observer = AppBlocObserver();
-
+  // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
-
+  // // Bloc.observer = AppBlocObserver();
   // NotificationSettings settings =
   //     await FirebaseMessaging.instance.requestPermission(
   //   alert: true,
@@ -61,5 +60,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

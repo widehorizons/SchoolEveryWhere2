@@ -4,28 +4,30 @@
 // import 'package:flutter_downloader/flutter_downloader.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+import 'package:flutter/material.dart';
+
 // import 'Chat/cubit/chatcubit_cubit.dart';
 // import 'config/flavor_config.dart';
-import 'package:flutter/material.dart';
-import 'app.dart';
-import 'app/config/utils/flavor_config.dart';
-import 'app/config/utils/inject.dart';
+import '../app.dart';
+import '../app/config/utils/flavor_config.dart';
+import '../app/config/utils/inject.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await boot();
   FlavorConfig(
-      flavor: Flavor.SPS,
+      flavor: Flavor.millennium,
       values: FlavorValues(
-        baseUrl: "https://schooleverywhere-stpeter.com/schooleverywhere/",
-        schoolName: "St. Peter's School",
-        schoolWebsite: 'https://www.stpeter-school.com',
-        imagePath: 'img/stpeters.png',
-        storagePath: '/data/user/0/com.schooleverywhere.stpeter',
+        baseUrl: "https://schooleverywhere-millennium.com/schooleverywhere/",
+        schoolName: 'millennium Language School',
+        schoolWebsite: 'https://mls.school/',
+        storagePath: '/data/user/0/com.schooleverywhere.millennium',
+        imagePath: 'img/millennium.png',
       ));
 
   // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
+  // // Bloc.observer = AppBlocObserver();
   // NotificationSettings settings =
   //     await FirebaseMessaging.instance.requestPermission(
   //   alert: true,
@@ -44,6 +46,7 @@ Future<void> main() async {
   // } else {
   //   print('User declined or has not accepted permission');
   // }
+
   // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
   // await flutterLocalNotificationsPlugin
@@ -57,5 +60,5 @@ Future<void> main() async {
   //   sound: true,
   // );
   // await FlutterDownloader.initialize(debug: true);
-  runApp(MyApp());
+  runApp(const MyApp());
 }

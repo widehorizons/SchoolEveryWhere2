@@ -1,14 +1,12 @@
 import 'dart:io';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
-
 import 'package:get/get.dart' hide Response;
-import 'package:schooleverywhereV2/app/config/utils/prefs.dart';
 
 import '../../services/connectivity.dart';
 import '../Constants/end_points.dart';
 import '../Constants/prefs_keys.dart';
+import 'prefs.dart';
 // import 'package:wichey/app/helpers/dio_connectivity_request_retrier.dart';
 // import 'package:wichey/app/helpers/prefs.dart';
 // import 'package:wichey/app/helpers/retry_interceptor.dart';

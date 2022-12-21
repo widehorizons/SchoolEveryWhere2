@@ -46,7 +46,8 @@ class HomeController extends GetxController {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("you_will_need_to_login_next_time_you_use_the_app".tr),
+                child:
+                    Text("you_will_need_to_login_next_time_you_use_the_app".tr),
               ),
               Row(
                 children: [
@@ -87,6 +88,6 @@ class HomeController extends GetxController {
 
   void logOut() {
     Prefs.clear();
-    Get.offAllNamed(Routes.LOGIN);
+    Get.offAllNamed(Routes.LANGUAGE_PICKER);
   }
 }

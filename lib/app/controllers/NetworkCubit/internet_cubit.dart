@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/status/http_status.dart';
-import 'package:meta/meta.dart';
-import 'package:schooleverywhereV2/app/config/utils/api_client.dart';
 
 import '../../config/Constants/enums.dart';
+import '../../config/utils/api_client.dart';
 
 part 'internet_state.dart';
 
