@@ -77,19 +77,37 @@ class ScaffoldOvalClipper extends StatelessWidget {
                   ],
                 ),
                 child: CircleAvatar(
-                  backgroundColor: context.theme.cardColor,
                   radius: 70,
-                  child: Center(
-                    child: SizedBox(
-                      height: 120,
+                  backgroundColor: Colors.white,
+                  child: ClipOval(
+                    child: Image.asset(
+                      FlavorConfig.instance.values.imagePath!,
                       width: 120,
-                      child: Image.asset(
-                        FlavorConfig.instance.values.imagePath!,
-                        fit: BoxFit.contain,
-                      ),
+                      height: 120,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
+
+                //  CircleAvatar(
+                //   backgroundColor: context.theme.cardColor,
+                //   radius: 70,
+                //   backgroundImage:
+                //       AssetImage(FlavorConfig.instance.values.imagePath!),
+                //   child: Center(
+                //     child: SizedBox(
+                //       height: 100,
+                //       width: 100,
+                //       child: Expanded(
+                //         // your image goes here which will take as much height as possible.
+                //         child: Image.asset(
+                //           FlavorConfig.instance.values.imagePath!,
+                //           fit: BoxFit.contain,
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ),
             ),
           ]),
