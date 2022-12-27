@@ -7,19 +7,17 @@ import 'package:stacked_themes/stacked_themes.dart';
 import '../../../config/tr/lang_controller.dart';
 
 class SettingsController extends GetxController {
-  Rx<bool> isDarkMode = Get.isDarkMode.obs;
+  static final themeManager = getThemeManager(Get.context!);
+  // static final themeManager = Get.put(ThemeManager());
+
+  Rx<bool> isDarkMode = themeManager.isDarkMode.obs;
   Rx<String> dropdownvalue = Get.locale!.languageCode.obs;
   void toggleDarkMode(BuildContext context) {
     isDarkMode.value = !isDarkMode.value;
-    getThemeManager(context).toggleDarkLightTheme();
+    themeManager.toggleDarkLightTheme();
     log("${getThemeManager(context).isDarkMode} ${getThemeManager(context).lightTheme} ${getThemeManager(context).getSelectedTheme().selectedTheme} ${getThemeManager(context).themes} ${getThemeManager(context).darkTheme} ${getThemeManager(context).initialTheme.selectedTheme} ${getThemeManager(context).initialTheme.themeMode}");
 
     update();
-    // if (isDarkMode.value) {
-    //   getThemeManager(context).setThemeMode(ThemeMode.dark);
-    // } else {
-    //   getThemeManager(context).setThemeMode(ThemeMode.light);
-    // }
   }
 
   changeLanguage(String languageCode) {

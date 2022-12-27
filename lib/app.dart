@@ -18,7 +18,6 @@ import 'package:stacked_themes/stacked_themes.dart';
 // import 'Student/ReceiveFromTeacher.dart';
 // import 'Student/StudentAssignments.dart';
 import 'app/config/Constants/prefs_keys.dart';
-import 'app/config/theme/app_colors.dart';
 import 'app/config/theme/theme_setup.dart';
 import 'app/config/tr/lang.dart';
 import 'app/config/tr/lang_controller.dart';
@@ -167,26 +166,14 @@ class _MyAppState extends State<MyApp> {
         //     ],
         child: ThemeBuilder(
             statusBarColorBuilder: (theme) => theme?.colorScheme.secondary,
-            themes: ThemeConfig.getThemes(),
+            // themes: [FlavorConfig.instance.theme, ThemeConfig.darkTheme],
             lightTheme: FlavorConfig.instance.theme,
-            darkTheme: ThemeData.dark().copyWith(
-                appBarTheme: FlavorConfig.instance.theme.appBarTheme,
-                bottomNavigationBarTheme: FlavorConfig
-                    .instance.theme.bottomNavigationBarTheme
-                    .copyWith(
-                        selectedIconTheme:
-                            const IconThemeData(color: Colors.white)),
-                iconTheme: FlavorConfig.instance.theme.iconTheme
-                    .copyWith(color: Colors.white),
-                colorScheme: FlavorConfig.instance.theme.colorScheme
-                    .copyWith(secondary: AppColors.primaryColor),
-                textTheme: FlavorConfig.instance.theme.textTheme.apply(
-                    fontFamily: 'Cairo',
-                    displayColor: Colors.white,
-                    bodyColor: Colors.white)),
+            darkTheme: ThemeConfig.darkTheme,
             defaultThemeMode: ThemeMode.system,
             builder: (context, regularTheme, darkTheme, themeMode) {
-              Get.config(defaultTransition: Transition.rightToLeftWithFade);
+              getThemeManager(context).selectThemeAtIndex(
+                  ThemeConfig.getThemes().indexOf(FlavorConfig.instance.theme));
+              Get.config(defaultTransition: Transition.topLevel);
               return GetMaterialApp(
                 title: "Testing...",
                 initialRoute: (Prefs.getString(PrefsKeys.token).isNotEmpty)

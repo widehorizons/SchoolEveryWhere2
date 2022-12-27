@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
     this.isOutlined = false,
     this.isCircular = false,
     this.color = AppColors.lightGreyBackground,
-    this.borderColor = Colors.white,
+    this.borderColor = Colors.transparent,
     this.radius = 8,
     this.height = 40,
     this.width = 80,
@@ -61,9 +61,10 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         style: isOutlined
             ? ElevatedButton.styleFrom(
+                shadowColor: context.theme.shadowColor,
                 foregroundColor: color,
                 backgroundColor: context.theme.scaffoldBackgroundColor,
-                elevation: 0, //?? AppTheme.appColor,
+                elevation: 5, //?? AppTheme.appColor,
                 shape: isCircular
                     ? CircleBorder(
                         side: BorderSide(color: borderColor, width: 1),
@@ -76,9 +77,10 @@ class CustomButton extends StatelessWidget {
                 minimumSize: Size(width, height),
               )
             : ElevatedButton.styleFrom(
+                shadowColor: context.theme.shadowColor,
                 foregroundColor: color ?? Colors.white,
                 backgroundColor: backgroundColor,
-                elevation: 0,
+                elevation: 5,
                 shape: isCircular
                     ? CircleBorder(
                         side: BorderSide(

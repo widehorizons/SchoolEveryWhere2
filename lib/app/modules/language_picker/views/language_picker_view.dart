@@ -39,17 +39,13 @@ class LanguagePickerView extends GetView<LanguagePickerController> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                child: controller.hasSelectedLanguage.value
-                    ? TextButton(
-                        onPressed: () => Get.toNamed(Routes.LOGIN),
-                        child: Text("continue".tr),
-                      )
-                    : TextButton(
-                        onPressed: () {},
-                        child: Text("skip".tr),
-                      ),
-              ),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: TextButton(
+                    onPressed: () => Get.toNamed(Routes.LOGIN),
+                    child: Text(controller.hasSelectedLanguage.value
+                        ? "continue".tr
+                        : "skip".tr),
+                  )),
             ),
           ],
         ),

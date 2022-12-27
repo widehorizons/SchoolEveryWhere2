@@ -49,37 +49,40 @@ class HomeController extends GetxController {
                 child:
                     Text("you_will_need_to_login_next_time_you_use_the_app".tr),
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomButton(
-                      onPressed: () => logOut(),
-                      backgroundColor: AppColors.confirm,
-                      child: Text(
-                        'confirm'.tr,
-                        style: context.theme.textTheme.bodySmall!.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: CustomButton(
+                        onPressed: () => logOut(),
+                        backgroundColor: AppColors.confirm,
+                        child: Text(
+                          'confirm'.tr,
+                          style: context.theme.textTheme.bodySmall!.copyWith(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: CustomButton(
-                      // isOutlined: true,
-                      // borderColor: Colors.white,
-                      backgroundColor: AppColors.cancel,
-                      // color: Colors.white,
-                      onPressed: () => Get.back(),
-                      child: Text(
-                        'cancel'.tr,
-                        style: context.theme.textTheme.bodySmall!.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.white),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: CustomButton(
+                        // isOutlined: true,
+                        // borderColor: Colors.white,
+                        backgroundColor: AppColors.cancel,
+                        // color: Colors.white,
+                        onPressed: () => Get.back(),
+                        child: Text(
+                          'cancel'.tr,
+                          style: context.theme.textTheme.bodySmall!.copyWith(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           );
