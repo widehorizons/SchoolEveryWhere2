@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rive/rive.dart';
 
 import '../../../config/tr/lang.dart';
 import '../../../widgets/custom_button.dart';
@@ -80,11 +81,22 @@ class SettingsView extends GetView<SettingsController> {
                         color: context.iconColor,
                       ),
                       title: Text('dark_mode'.tr),
-                      trailing: CupertinoSwitch(
-                        value: controller.isDarkMode.value,
-                        onChanged: (value) =>
-                            controller.toggleDarkMode(context),
-                      ),
+                      trailing: SizedBox(
+                          width: 90,
+                          height: 90,
+                          child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: (controller.darkButtonArtboard == null)
+                                  ? const SizedBox()
+                                  : Rive(
+                                      artboard: controller.darkButtonArtboard!,
+                                    ))),
+
+                      // CupertinoSwitch(
+                      //   value: controller.isDarkMode.value,
+                      //   onChanged: (value) =>
+                      //       controller.toggleDarkMode(context),
+                      // ),
                       onTap: () => controller.toggleDarkMode(context),
                     )),
                 ListTile(
