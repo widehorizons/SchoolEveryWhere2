@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "746719979662",
+    "firebase_url": "https://tiba-acedmy.firebaseio.com",
+    "project_id": "tiba-acedmy",
+    "storage_bucket": "tiba-acedmy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746719979662:android:2ae9cf76d3f6245e8fc1df",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.tibaacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746719979662-1s7q3rjma1781s44vrtgks4ti61ei90c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.tibaacademy",
+            "certificate_hash": "e1809fbe8a1718b7e85bca7cc04a31b6da603b50"
+          }
+        },
+        {
+          "client_id": "746719979662-31584p50tp1anlbjqbv6dfqm7k10aeo3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.tibaacademy",
+            "certificate_hash": "ccc1299bc2b52e07f4dc544ce118a49c5b3db074"
+          }
+        },
+        {
+          "client_id": "746719979662-duptjntab319774hk32peet9shhqv33n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.tibaacademy",
+            "certificate_hash": "0f46115e4858f9580de3aede57b119b412c90d49"
+          }
+        },
+        {
+          "client_id": "746719979662-lc5n4p6rvmglsq6jnb9s2bi6a61tm52q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMYE5vXJDBuiS1ZimZk9QcskwtqKWoOiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746719979662-lc5n4p6rvmglsq6jnb9s2bi6a61tm52q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "746719979662-4rmfg8gjg1jrh5k86ij30e9p3773nove.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.schooleverywhere.tibaacademy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

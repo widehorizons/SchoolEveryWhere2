@@ -22,6 +22,7 @@ class AppColors {
   static const stock = Color(0XFFF1F1F1);
 
   static const black = Color(0xFF000000);
+  static const lightGrey = Color(0xFFE1E1E1);
   static const gray1 = Color(0xFFF4F5F9);
   static const gray2 = Color(0xFFE0E0E0);
   static const grayBackground = Color(0xFFE5E5E5);
@@ -39,33 +40,14 @@ class AppColors {
   static const couponColor = Color(0xFFFEC65E);
 }
 
-ThemeData appLightTheme = ThemeData(
-    primaryColor: AppColors.primaryColor,
-    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      type: BottomNavigationBarType.fixed,
-      elevation: 20,
-      selectedItemColor: AppColors.primaryColor,
-      unselectedItemColor: Colors.grey,
-    ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.primaryColor,
-      elevation: 0,
-      titleTextStyle: const TextStyle(
-          fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600),
-      iconTheme: IconThemeData(
-        color: AppColors.white,
-      ),
-      centerTitle: true,
-    ),
-    iconTheme: IconThemeData(
-      color: AppColors.primaryTypoColor,
-      size: 18,
-    ),
-    cardTheme: CardTheme(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-    ));
-
-ThemeData appDarkTheme = appLightTheme.copyWith(brightness: Brightness.dark);
+TextTheme textTheme = TextTheme(
+  titleSmall: TextStyle(color: Colors.black),
+  titleMedium: TextStyle(color: Colors.black),
+  titleLarge: TextStyle(color: Colors.black),
+  bodySmall: TextStyle(color: Colors.black),
+  bodyMedium: TextStyle(color: Colors.black),
+  bodyLarge: TextStyle(color: Colors.black),
+  labelSmall: TextStyle(color: Colors.black),
+  labelMedium: TextStyle(color: Colors.black),
+  labelLarge: TextStyle(color: Colors.black),
+);

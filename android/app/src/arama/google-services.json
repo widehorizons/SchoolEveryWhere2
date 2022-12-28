@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "458133990886",
+    "project_id": "arama-e9f30",
+    "storage_bucket": "arama-e9f30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458133990886:android:13af379ac5fe91afa87a27",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.arama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458133990886-f97reb3e689rrool5amdfa0qpebp8ib8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEr43gFCoRDR_nkBSc0UEdaauDUnv4nXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458133990886-f97reb3e689rrool5amdfa0qpebp8ib8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

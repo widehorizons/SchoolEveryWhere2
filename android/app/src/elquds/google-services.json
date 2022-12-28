@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "502503902742",
+    "firebase_url": "https://elquds-5753c.firebaseio.com",
+    "project_id": "elquds-5753c",
+    "storage_bucket": "elquds-5753c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502503902742:android:7d7fa9bf6c9ea26d882f37",
+        "android_client_info": {
+          "package_name": "com.elquds.schooleverywhere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502503902742-dvto0d75ek18gjd8ch8gn414hhf6hrbr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elquds.schooleverywhere",
+            "certificate_hash": "ccc1299bc2b52e07f4dc544ce118a49c5b3db074"
+          }
+        },
+        {
+          "client_id": "502503902742-86sgs1h4al21r1hgl4um5rs433lnnqmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVgWYkpuYHBFfL3jAO40Q8j2DSLPXP_XI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502503902742-86sgs1h4al21r1hgl4um5rs433lnnqmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

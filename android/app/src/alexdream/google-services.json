@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "224420084449",
+    "firebase_url": "https://alex-dream.firebaseio.com",
+    "project_id": "alex-dream",
+    "storage_bucket": "alex-dream.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224420084449:android:0f3dfcfb06aa499859d5a0",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.alexdream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224420084449-8imvobt62eiv44r0eln4quf62q0oq09o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.alexdream",
+            "certificate_hash": "ccc1299bc2b52e07f4dc544ce118a49c5b3db074"
+          }
+        },
+        {
+          "client_id": "224420084449-nq7sk132b5o9rvrr6mredj7k9stq4u5s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.alexdream",
+            "certificate_hash": "83d93cea0713324423466838ddad429ef2673f66"
+          }
+        },
+        {
+          "client_id": "224420084449-vrbchug6mt0obdak6vdc15mfrfl0tde4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM48FjXaOj4cJcvBsG8sbVBigRMbjBlxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224420084449-vrbchug6mt0obdak6vdc15mfrfl0tde4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "162650103626",
+    "firebase_url": "https://harvard-bdd25.firebaseio.com",
+    "project_id": "harvard-bdd25",
+    "storage_bucket": "harvard-bdd25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162650103626:android:d2e5a6c3deda52b2966bb3",
+        "android_client_info": {
+          "package_name": "com.schooleverywhere.harvard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162650103626-rgtehb82jaf8euu5fgf483ja34ggb1kb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.schooleverywhere.harvard",
+            "certificate_hash": "e1809fbe8a1718b7e85bca7cc04a31b6da603b50"
+          }
+        },
+        {
+          "client_id": "162650103626-khlq3furg5p4ebj6djvldi3eq7bvjvj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8PaYspPhcpLzns5dUie8VyyIHzxObzS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162650103626-khlq3furg5p4ebj6djvldi3eq7bvjvj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

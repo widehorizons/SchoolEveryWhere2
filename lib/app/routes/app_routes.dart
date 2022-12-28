@@ -8,6 +8,9 @@ abstract class Routes {
   static const CHAT_ROOMS = _Paths.CHAT_ROOMS;
   static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
   static const PROFILE = _Paths.PROFILE;
+  static const LOGIN = _Paths.LOGIN;
+  static const LANGUAGE_PICKER = _Paths.LANGUAGE_PICKER;
+  static const SETTINGS = _Paths.SETTINGS;
 }
 
 abstract class _Paths {
@@ -17,4 +20,7 @@ abstract class _Paths {
   static const CHAT_ROOMS = '/chat-rooms';
   static const NOTIFICATIONS = '/notifications';
   static const PROFILE = '/profile';
+  static const LOGIN = '/login';
+  static const LANGUAGE_PICKER = '/language-picker';
+  static const SETTINGS = '/settings';
 }

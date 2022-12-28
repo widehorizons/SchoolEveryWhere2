@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../config/theme/theme.dart';
+import '../routes/app_pages.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -11,25 +13,30 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 4.0,
-      backgroundColor: AppColors.scaffoldBackgroundColor,
       child: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
-          DrawerHeader(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [],
+          UserAccountsDrawerHeader(
+            accountName: const Text('Mostafa'),
+            currentAccountPicture:
+                const Image(image: AssetImage('assets/moon.png')),
+            accountEmail: Text(
+              "Mostafa@WideHorizons.net",
+              style: context.textTheme.labelMedium!
+                  .copyWith(color: AppColors.white),
             ),
           ),
-
-          // ListTile(
-          //   leading: const Icon(Icons.logout),
-          //   title: const Text('Log Out'),
-          //   onTap: () {
-          //     Prefs.clear();
-          //     Get.offAllNamed(Routes.AUTH);
-          //   },
-          // ),
+          const SizedBox(
+            height: 20,
+          ),
+          ListTile(
+            leading: Icon(Icons.settings_outlined,
+                color: context.theme.iconTheme.color),
+            title: Text('settings'.tr),
+            onTap: () {
+              Get.toNamed(Routes.SETTINGS);
+            },
+          ),
         ],
       ),
     );
