@@ -86,17 +86,9 @@ class SettingsView extends GetView<SettingsController> {
                           height: 90,
                           child: Align(
                               alignment: Alignment.bottomCenter,
-                              child: (controller.darkButtonArtboard == null)
-                                  ? const SizedBox()
-                                  : Rive(
-                                      artboard: controller.darkButtonArtboard!,
-                                    ))),
-
-                      // CupertinoSwitch(
-                      //   value: controller.isDarkMode.value,
-                      //   onChanged: (value) =>
-                      //       controller.toggleDarkMode(context),
-                      // ),
+                              child: Rive(
+                                artboard: controller.darkButtonArtboard.value!,
+                              ))),
                       onTap: () => controller.toggleDarkMode(context),
                     )),
                 ListTile(
