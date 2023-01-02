@@ -25,5 +25,7 @@ Map<String, String> fr = {
   'select_a_user_type': 'Select a user type',
   'username': 'Username',
   'password': 'Password',
+  'identifier': 'identifier',
   'remember_me': 'Remember me',
+  'please_select_user_type': 'please select user type'
 };

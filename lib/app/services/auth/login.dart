@@ -1,22 +1,21 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
+
 import '../../config/Constants/end_points.dart';
 import '../../config/Constants/prefs_keys.dart';
 import '../../config/utils/api_client.dart';
 import '../../config/utils/prefs.dart';
+import '../../models/dto/login_dto.dart';
 
 class LoginService {
   login({
-    required String phone,
-    required String password,
+    required LoginDTO loginParameters,
   }) async {
     final res = await Api.post(
       EndPoints.login,
       attachToken: false,
-      body: {
-        'phone': phone,
-        'password': password,
-      },
+      body: FormData.fromMap(loginParameters.toMap()),
     );
 
     if (res.statusCode != HttpStatus.ok) {
@@ -25,7 +24,7 @@ class LoginService {
     // Prefs.setMap(PrefsKeys.userModel, User.fromJson(res.data['data']).toMap());
     // log((Prefs.getMap(PrefsKeys.userModel).toString()).toString());
     Prefs.setString(PrefsKeys.token, 'ABCD');
-    // return UserModel.fromJson(res.data['data']);
+    return res.data;
   }
 
   /// request list of User Types
@@ -35,5 +34,15 @@ class LoginService {
       throw response.data['message'] ?? response.data;
     }
     return response.data['loginType'];
+  }
+
+  /// request list of User Types
+  checkIdentifier(String userType) async {
+    final response =
+        await Api.post(EndPoints.chekIdentiifer, body: {'type': userType});
+    if (response.statusCode != HttpStatus.ok) {
+      throw response.data['message'] ?? response.data;
+    }
+    return response.data;
   }
 }

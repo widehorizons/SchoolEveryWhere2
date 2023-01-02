@@ -7,4 +7,5 @@ class EndPoints {
 
   static const login = 'login.php';
   static const loginType = 'loginType.php';
+  static const chekIdentiifer = 'check_identifier.php';
 }

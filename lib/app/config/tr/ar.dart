@@ -23,6 +23,8 @@ Map<String, String> ar = {
   "dark_mode": "الوضع المظلم",
   'select_a_user_type': 'اختر نوع المستخدم',
   'username': 'اسم المستخدم',
+  'identifier': 'identifier',
   'password': 'كلمة المرور',
   'remember_me': 'تــذكرنـى',
+  'please_select_user_type':'من فضلك اختر نوع المستخدم'
 };

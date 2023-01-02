@@ -2,11 +2,14 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
 
 import '../../../config/Constants/prefs_keys.dart';
+import '../../../config/theme/theme.dart';
 import '../../../config/utils/prefs.dart';
+import '../../../models/dto/login_dto.dart';
 import '../../../routes/app_pages.dart';
 import '../../../services/auth/login.dart';
 
@@ -15,8 +18,11 @@ class LoginController extends GetxController {
   var subjectItemlist = [];
   final userTypeItemlist = [].obs;
 
-  RxBool loadingTypes = false.obs;
+// #### Booleans ####
+  final loadingTypes = false.obs;
   final rememberMe = false.obs;
+  final hasIdentifier = false.obs;
+  final obscureText = false.obs;
 
   final _loginservice = Get.find<LoginService>();
 
@@ -25,10 +31,13 @@ class LoginController extends GetxController {
   SMITrigger? successTrigger, failTrigger;
   SMIBool? isHandsUp, isChecking;
   SMINumber? numLook;
-
   StateMachineController? stateMachineController;
-  final TextEditingController emailController = TextEditingController();
+
+  final loginFormKey = GlobalKey<FormState>();
+  final TextEditingController identifierController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
   Future<void> loginTypes() async {
     try {
       loadingTypes.value = true;
@@ -41,19 +50,53 @@ class LoginController extends GetxController {
     }
   }
 
-  void login() {
+  Future<void> checkIdentifier(String type) async {
+    try {
+      final res = await _loginservice.checkIdentifier(type);
+      hasIdentifier.value = res[type] ?? false;
+    } catch (e) {
+      log(e.toString());
+    }
+  }
+
+  toggleVisibility() => obscureText.value = !obscureText.value;
+
+  Future<void> login() async {
     isChecking?.change(false);
     isHandsUp?.change(false);
-    if (emailController.text == "admin" && passwordController.text == "admin") {
-      successTrigger?.fire();
-      Future.delayed(
-          const Duration(seconds: 2),
-          () => {
-                Prefs.setString(PrefsKeys.token, "token"),
-                Get.offAllNamed(Routes.HOME)
-              });
-    } else {
-      failTrigger?.fire();
+    if (loginFormKey.currentState!.validate() &&
+        (dropdownvalue.value?.isNotEmpty ?? false)) {
+      log('valid');
+      try {
+        final res = await _loginservice.login(
+            loginParameters: LoginDTO(
+                username: usernameController.text,
+                password: passwordController.text,
+                type: dropdownvalue.value.toString(),
+                identidier: identifierController.text));
+        if (res['Success']) {
+          successTrigger?.fire();
+          Future.delayed(
+              const Duration(seconds: 2),
+              () => {
+                    Prefs.setString(PrefsKeys.token, "token"),
+                    Get.offAllNamed(Routes.HOME)
+                  });
+        } else {
+          failTrigger?.fire();
+          Fluttertoast.showToast(msg: res['message'].toString());
+        }
+      } catch (e) {
+        failTrigger?.fire();
+        log(e.toString(), stackTrace: StackTrace.current);
+      }
+    }
+    if (dropdownvalue.value?.isEmpty ?? true) {
+      log('please_select_user_type'.tr);
+      Fluttertoast.showToast(
+          msg: 'please_select_user_type'.tr,
+          backgroundColor: AppColors.disabled,
+          gravity: ToastGravity.TOP);
     }
   }
 
@@ -119,5 +162,12 @@ class LoginController extends GetxController {
     });
     await loginTypes();
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    ever(dropdownvalue,
+        (callback) => checkIdentifier(dropdownvalue.value.toString()));
+    super.onReady();
   }
 }

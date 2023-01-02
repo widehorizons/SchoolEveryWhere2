@@ -21,7 +21,7 @@ class CopyRights extends StatelessWidget {
           child: Text(
             '© Powerd by SchoolEveryWhere™',
             style: context.textTheme.bodyMedium!
-                .copyWith(height: 1.2, color: AppColors.secondaryTypoColor),
+                .copyWith(height: 1.2, color: AppColors.primaryTypoColor),
           ),
         ),
       ],
