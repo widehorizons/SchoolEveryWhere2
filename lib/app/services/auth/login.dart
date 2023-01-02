@@ -27,4 +27,13 @@ class LoginService {
     Prefs.setString(PrefsKeys.token, 'ABCD');
     // return UserModel.fromJson(res.data['data']);
   }
+
+  /// request list of User Types
+  loginType() async {
+    final response = await Api.post(EndPoints.loginType);
+    if (response.statusCode != HttpStatus.ok) {
+      throw response.data['message'] ?? response.data;
+    }
+    return response.data['loginType'];
+  }
 }

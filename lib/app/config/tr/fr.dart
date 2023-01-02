@@ -21,5 +21,9 @@ Map<String, String> fr = {
   "confirm": "Confirmer",
   "settings": "Réglages",
   "Preferences": "Préférences",
-  "dark_mode": "mode sombre"
+  "dark_mode": "mode sombre",
+  'select_a_user_type': 'Select a user type',
+  'username': 'Username',
+  'password': 'Password',
+  'remember_me': 'Remember me',
 };

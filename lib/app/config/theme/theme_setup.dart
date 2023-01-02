@@ -18,7 +18,6 @@ class ThemeConfig {
       fontFamily: 'Cairo',
       primaryColor: AppColors.primaryColor,
       shadowColor: Colors.black38,
-      // scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         elevation: 20,
@@ -48,6 +47,8 @@ class ThemeConfig {
       ),
       colorScheme:
           ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor));
+
+  /// theme [alrowadTheme]
   static ThemeData alrowadTheme = ThemeData(
       brightness: Brightness.light,
       fontFamily: 'Cairo',
@@ -81,8 +82,11 @@ class ThemeConfig {
       ),
       colorScheme:
           ColorScheme.fromSwatch().copyWith(secondary: AppColors.confirmed));
+
+  /// [darkTheme]
   static ThemeData darkTheme = ThemeData.dark().copyWith(
       appBarTheme: FlavorConfig.instance.theme.appBarTheme,
+      brightness: Brightness.dark,
       applyElevationOverlayColor: false,
       bottomNavigationBarTheme:
           FlavorConfig.instance.theme.bottomNavigationBarTheme.copyWith(

@@ -20,5 +20,9 @@ Map<String, String> ar = {
   "confirm": "تأكيد",
   "settings": "الإعدادات",
   "Preferences": "التفضيلات",
-  "dark_mode": "الوضع المظلم"
+  "dark_mode": "الوضع المظلم",
+  'select_a_user_type': 'اختر نوع المستخدم',
+  'username': 'اسم المستخدم',
+  'password': 'كلمة المرور',
+  'remember_me': 'تــذكرنـى',
 };

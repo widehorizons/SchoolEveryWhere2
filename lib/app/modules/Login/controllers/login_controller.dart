@@ -8,13 +8,17 @@ import 'package:rive/rive.dart';
 import '../../../config/Constants/prefs_keys.dart';
 import '../../../config/utils/prefs.dart';
 import '../../../routes/app_pages.dart';
+import '../../../services/auth/login.dart';
 
 class LoginController extends GetxController {
-  var dropdownvalue;
-  var dropdownvalueSubject;
+  final dropdownvalue = Rx<String?>(null);
   var subjectItemlist = [];
+  final userTypeItemlist = [].obs;
 
-  List userTypeItemlist = ['Student', 'Parent', 'Staff', 'Manager'];
+  RxBool loadingTypes = false.obs;
+  final rememberMe = false.obs;
+
+  final _loginservice = Get.find<LoginService>();
 
   late String animationURL;
   Rx<Artboard?> teddyArtboard = Rx<Artboard?>(null);
@@ -25,6 +29,18 @@ class LoginController extends GetxController {
   StateMachineController? stateMachineController;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  Future<void> loginTypes() async {
+    try {
+      loadingTypes.value = true;
+      final data = await _loginservice.loginType();
+      userTypeItemlist.addAll(data!);
+    } catch (e) {
+      log(e.toString());
+    } finally {
+      loadingTypes.value = false;
+    }
+  }
+
   void login() {
     isChecking?.change(false);
     isHandsUp?.change(false);
@@ -38,6 +54,14 @@ class LoginController extends GetxController {
               });
     } else {
       failTrigger?.fire();
+    }
+  }
+
+  toggleRememberMe() {
+    rememberMe.value = !rememberMe.value;
+    if (rememberMe.value) {
+      log('Data should be saved');
+// TODO: Implement save users data
     }
   }
 
@@ -62,7 +86,7 @@ class LoginController extends GetxController {
   }
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     rootBundle.load('assets/riveAssets/login.riv').then((data) {
       final file = RiveFile.import(data);
       final artboard = file.mainArtboard;
@@ -93,6 +117,7 @@ class LoginController extends GetxController {
       teddyArtboard.value = artboard;
       update();
     });
+    await loginTypes();
     super.onInit();
   }
 }

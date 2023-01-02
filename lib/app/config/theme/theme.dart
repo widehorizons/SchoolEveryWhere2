@@ -12,7 +12,10 @@ class AppColors {
   static const disabled = Color(0xFFF28383);
 
   static const confirmed = Color(0xFF00AF54);
-
+  static const lightGreyBackground = Color(0xFFF9F9F9);
+  static const floatingButtonColor = Color(0xff003564);
+  static const confirm = Colors.green;
+  static const cancel = Colors.redAccent;
   static const cyan = Color(0xFF30B5B0);
   static const orange = Color(0XFFFFBD73);
   static const yellow = Color(0XFFFEEBC8);

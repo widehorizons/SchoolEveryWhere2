@@ -20,5 +20,9 @@ Map<String, String> en = {
   "confirm": "Confirm",
   "settings": "Settings",
   "Preferences": "Preferences",
-  "dark_mode": "Dark Mode"
+  "dark_mode": "Dark Mode",
+  'select_a_user_type': 'Select a user type',
+  'username': 'Username',
+  'password': 'Password',
+  'remember_me': 'Remember me',
 };

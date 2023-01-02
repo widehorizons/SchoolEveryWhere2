@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../config/theme/app_colors.dart';
+import '../../../config/theme/theme.dart';
 import '../../../config/utils/prefs.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/custom_button.dart';
