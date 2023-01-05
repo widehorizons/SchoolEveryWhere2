@@ -5,6 +5,9 @@ Map<String, String> en = {
   "ar": "اللغة العربية",
   "en": "English",
   "fr": "Français",
+  'good_morning': 'Good Morning',
+  'good_evening': 'Good Evening',
+  'good_afternoon': 'Good Afternoon',
   "looks_like_you're_offline": "Looks Like You Are Offline !!",
   "make_sure_you_are_connected_first": "Make Sure You Are Connected first",
   "login": "Login",
@@ -26,5 +29,6 @@ Map<String, String> en = {
   'password': 'Password',
   'identifier': 'identifier',
   'remember_me': 'Remember me',
-  'please_select_user_type': 'please select user type'
+  'please_select_user_type': 'please select user type',
+  'search': 'Search'
 };

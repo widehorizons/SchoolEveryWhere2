@@ -5,6 +5,9 @@ Map<String, String> fr = {
   "ar": "اللغة العربية",
   "en": "English",
   "fr": "Français",
+  'good_morning': 'Bonjour',
+  'good_evening': 'bonsoir',
+  'good_afternoon': 'bonne après-midi',
   "looks_like_you're_offline": "On dirait que vous êtes hors ligne !!",
   "make_sure_you_are_connected_first":
       "Assurez-vous d'abord que vous êtes connecté",
@@ -27,5 +30,6 @@ Map<String, String> fr = {
   'password': 'Password',
   'identifier': 'identifier',
   'remember_me': 'Remember me',
-  'please_select_user_type': 'please select user type'
+  'please_select_user_type': 'please select user type',
+  'search': 'rechercher'
 };

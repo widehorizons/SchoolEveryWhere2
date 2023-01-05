@@ -22,7 +22,7 @@ class LoginController extends GetxController {
   final loadingTypes = false.obs;
   final rememberMe = false.obs;
   final hasIdentifier = false.obs;
-  final obscureText = false.obs;
+  final obscureText = true.obs;
 
   final _loginservice = Get.find<LoginService>();
 
@@ -73,7 +73,7 @@ class LoginController extends GetxController {
                 username: usernameController.text,
                 password: passwordController.text,
                 type: dropdownvalue.value.toString(),
-                identidier: identifierController.text));
+                identifier: identifierController.text));
         if (res['Success']) {
           successTrigger?.fire();
           Future.delayed(

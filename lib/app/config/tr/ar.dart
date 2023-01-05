@@ -5,6 +5,9 @@ Map<String, String> ar = {
   "ar": "اللغة العربية",
   "en": "English",
   "fr": "Français",
+  'good_morning': 'صباح الخير',
+  'good_evening': 'مساء الخير ',
+  'good_afternoon': 'مساء الخير',
   "looks_like_you're_offline": "يبدو أنك غير متصل بالإنترنت !!",
   "make_sure_you_are_connected_first": "تأكد من إتصال جهازك بالإنترنت أولاً",
   "login": "تسجيل الدخول",
@@ -26,5 +29,6 @@ Map<String, String> ar = {
   'identifier': 'identifier',
   'password': 'كلمة المرور',
   'remember_me': 'تــذكرنـى',
-  'please_select_user_type':'من فضلك اختر نوع المستخدم'
+  'please_select_user_type': 'من فضلك اختر نوع المستخدم',
+  'search': 'بحث'
 };
