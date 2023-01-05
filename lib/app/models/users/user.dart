@@ -1,4 +1,4 @@
-abstract class User {
+class User {
   String? id;
   String? token;
   String? name;

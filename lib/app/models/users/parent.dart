@@ -1,4 +1,4 @@
-import 'User.dart';
+import 'user.dart';
 
 class Parent extends User {
   List childrenName = [];

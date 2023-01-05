@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -14,6 +15,8 @@ import '../../../routes/app_pages.dart';
 import '../../../services/auth/login.dart';
 
 class LoginController extends GetxController {
+  String _token = "";
+  Stream<String>? _tokenStream;
   final dropdownvalue = Rx<String?>(null);
   var subjectItemlist = [];
   final userTypeItemlist = [].obs;
@@ -62,14 +65,15 @@ class LoginController extends GetxController {
   toggleVisibility() => obscureText.value = !obscureText.value;
 
   Future<void> login() async {
+    log('FCM device token = $_token');
     isChecking?.change(false);
     isHandsUp?.change(false);
     if (loginFormKey.currentState!.validate() &&
         (dropdownvalue.value?.isNotEmpty ?? false)) {
-      log('valid');
       try {
         final res = await _loginservice.login(
             loginParameters: LoginDTO(
+                deviceToken: _token,
                 username: usernameController.text,
                 password: passwordController.text,
                 type: dropdownvalue.value.toString(),
@@ -128,8 +132,16 @@ class LoginController extends GetxController {
     numLook?.change(0);
   }
 
+  void setToken(String? token) {
+    log('FCM Token: $token');
+    _token = token!;
+  }
+
   @override
   Future<void> onInit() async {
+    FirebaseMessaging.instance.getToken().then(setToken);
+    _tokenStream = FirebaseMessaging.instance.onTokenRefresh;
+    _tokenStream!.listen(setToken);
     rootBundle.load('assets/riveAssets/login.riv').then((data) {
       final file = RiveFile.import(data);
       final artboard = file.mainArtboard;

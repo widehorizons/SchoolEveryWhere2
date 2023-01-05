@@ -5,11 +5,13 @@ class LoginDTO {
   final String password;
   final String type;
   final String identifier;
+  final String? deviceToken;
   LoginDTO({
     required this.username,
     required this.password,
     required this.type,
     required this.identifier,
+    this.deviceToken,
   });
 
   LoginDTO copyWith({
@@ -17,12 +19,14 @@ class LoginDTO {
     String? password,
     String? type,
     String? identifier,
+    String? deviceToken,
   }) {
     return LoginDTO(
       username: username ?? this.username,
       password: password ?? this.password,
       type: type ?? this.type,
       identifier: identifier ?? this.identifier,
+      deviceToken: deviceToken ?? this.deviceToken,
     );
   }
 
@@ -32,6 +36,7 @@ class LoginDTO {
       'password': password,
       'type': type,
       'identifier': identifier,
+      'tokendevice': deviceToken,
     };
   }
 
@@ -41,6 +46,7 @@ class LoginDTO {
       password: map['password'] ?? '',
       type: map['type'] ?? '',
       identifier: map['identifier'] ?? '',
+      deviceToken: map['tokendevice'] ?? '',
     );
   }
 
