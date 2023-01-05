@@ -116,7 +116,7 @@ class ApiClient {
     Map<String, dynamic> headers = const {},
     Map<String, dynamic> query = const {},
     String? contentType,
-    bool attachToken = true,
+    bool attachToken = false,
   }) async {
     if (attachToken && Prefs.getString(PrefsKeys.token).isEmpty) {
       throw 'unauthenticated';

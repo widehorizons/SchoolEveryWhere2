@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../config/Constants/dimensions.dart';
 import 'sun_moon.dart';
@@ -18,6 +19,22 @@ class DayNightGreetingBanner extends StatelessWidget {
       return Colors.orange[400];
     }
     return Colors.blue[200];
+  }
+
+  /// Get Greeting, representing the time of day
+  static String getGreeting() {
+    final timeState = DateTime.now();
+    final hour = timeState.hour;
+    final isDay = hour >= 6 && hour <= 18;
+    final isDusk = hour >= 16 && hour <= 18;
+
+    if (!isDay) {
+      return 'good_evening'.tr;
+    }
+    if (isDusk) {
+      return 'good_afternoon'.tr;
+    }
+    return 'good_morning'.tr;
   }
 
   double mapRange(
@@ -43,7 +60,7 @@ class DayNightGreetingBanner extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 32),
       margin: const EdgeInsets.all(ksmallMargin),
       decoration: BoxDecoration(
-          backgroundBlendMode: BlendMode.darken,
+          // backgroundBlendMode: BlendMode.darken,
           color: getColor(isDay, isDusk),
           borderRadius: const BorderRadius.all(Radius.circular(kMediumMargin))),
       height: 150,

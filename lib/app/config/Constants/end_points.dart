@@ -5,5 +5,7 @@ class EndPoints {
 
   static final api = '$baseUrl/api/';
 
-  static const login = 'login';
+  static const login = 'login.php';
+  static const loginType = 'loginType.php';
+  static const chekIdentiifer = 'check_identifier.php';
 }
