@@ -63,7 +63,7 @@ class DayNightGreetingBanner extends StatelessWidget {
           // backgroundBlendMode: BlendMode.darken,
           color: getColor(isDay, isDusk),
           borderRadius: const BorderRadius.all(Radius.circular(kMediumMargin))),
-      height: 150,
+      height: 200,
       duration: const Duration(seconds: 1),
       child: LayoutBuilder(
         builder: (context, constraints) {

@@ -63,6 +63,20 @@ class ApiClient {
     return dio;
   }
 
+  int getLanguageCode() {
+    final languageCode = Get.locale!.languageCode;
+    switch (languageCode) {
+      case 'ar':
+        return 10;
+      case 'en':
+        return 10;
+      case 'fr':
+        return 10;
+      default:
+        return 2;
+    }
+  }
+
   Response _validate(Response res) {
     // if (res.statusCode == 500) {
     //   throw 'Server Error';
@@ -96,7 +110,7 @@ class ApiClient {
             if (attachToken && Prefs.getString(PrefsKeys.token).isNotEmpty)
               HttpHeaders.authorizationHeader:
                   'Bearer ${Prefs.getString(PrefsKeys.token)}',
-            'X-localization': Get.locale!.languageCode,
+            'Accept-Language': getLanguageCode(),
             'Accept': 'application/json',
             'Content-type': 'application/json',
             ...headers,
@@ -133,7 +147,7 @@ class ApiClient {
                   'Bearer ${Prefs.getString(PrefsKeys.token)}',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'X-localization': Get.locale!.languageCode,
+            'Accept-Language': getLanguageCode(),
             ...headers,
           },
           contentType: contentType,
@@ -165,7 +179,7 @@ class ApiClient {
             if (attachToken)
               HttpHeaders.authorizationHeader:
                   'Bearer ${Prefs.getString(PrefsKeys.token)}',
-            'X-localization': Get.locale!.languageCode,
+            'Accept-Language': getLanguageCode(),
             ...headers,
           },
         ),
@@ -194,7 +208,7 @@ class ApiClient {
           headers: {
             HttpHeaders.authorizationHeader:
                 'Bearer ${Prefs.getString(PrefsKeys.token)}',
-            'X-localization': Get.locale!.languageCode,
+            'Accept-Language': getLanguageCode(),
             ...headers,
           },
         ),

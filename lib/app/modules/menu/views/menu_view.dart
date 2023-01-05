@@ -16,26 +16,28 @@ class MenuView extends GetView<MenuController> {
       child: Theme(
         data: context.theme.copyWith(dividerColor: Colors.transparent),
         child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: context.theme.scaffoldBackgroundColor,
-            iconTheme: IconThemeData(
-              color: context.iconColor,
-            ),
-            actions: const [],
-          ),
-          drawer: const CustomDrawer(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Stack(
-                  children: [
-                    const DayNightGreetingBanner(),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
+            drawer: const CustomDrawer(),
+            body: Column(children: <Widget>[
+              Stack(
+                children: [
+                  const DayNightGreetingBanner(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                        child: InkWell(
+                          child: const Icon(
+                            Icons.menu,
+                            size: 26,
+                            color: AppColors.white,
+                          ),
+                          onTap: () => Scaffold.of(context).openDrawer(),
+                        ),
+                      ),
+                      Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                            horizontal: 20, vertical: 5),
                         child: Row(
                           children: [
                             Text(
@@ -49,107 +51,121 @@ class MenuView extends GetView<MenuController> {
                           ],
                         ),
                       ),
-                    ),
-                    Positioned(
-                      bottom: 20,
-                      right: 20,
-                      left: 20,
-                      child: ClipRRect(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(12)),
-                        child: Container(
-                          height: 50,
-                          width: context.width * .8,
-                          color: Colors.white.withAlpha(92),
-                          child: Row(children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: SvgPicture.asset(
-                                'assets/icons/search.svg',
-                                color: AppColors.gray1,
-                                height: 25,
+                    ],
+                  ),
+                  Positioned(
+                    bottom: 20,
+                    right: 20,
+                    left: 20,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      child: Container(
+                        height: 50,
+                        width: context.width * .8,
+                        color: Colors.white.withAlpha(150),
+                        child: Row(children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: SvgPicture.asset(
+                              'assets/icons/search.svg',
+                              color: Colors.white,
+                              height: 25,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 4,
+                            child: TextField(
+                              controller: controller.code,
+                              style: const TextStyle(color: Colors.black),
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
                               ),
                             ),
-                            Expanded(
-                              flex: 4,
-                              child: TextField(
-                                controller: controller.code,
-                                decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                                flex: 2,
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  child: CustomButton(
-                                      child: Text(
-                                        'search'.tr,
-                                        style: context.textTheme.caption!
-                                            .copyWith(color: Colors.white),
-                                      ),
-                                      onPressed: () async {}),
-                                ))
-                          ]),
-                        ),
+                          ),
+                          Expanded(
+                              flex: 2,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: CustomButton(
+                                    child: Text(
+                                      'search'.tr,
+                                      style: context.textTheme.caption!
+                                          .copyWith(color: Colors.white),
+                                    ),
+                                    onPressed: () async {}),
+                              ))
+                        ]),
                       ),
                     ),
-                  ],
-                ),
-                Center(
-                  child: GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    itemCount: 8,
-                    itemBuilder: (ctx, i) {
-                      return Card(
-                        elevation: 10,
-                        child: Container(
-                          // height: 100,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30)),
-                          margin: const EdgeInsets.all(5),
-                          padding: const EdgeInsets.all(5),
-                          child: Stack(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Image.network(
-                                      'https://tech.pelmorex.com/wp-content/uploads/2020/10/flutter.png',
-                                      fit: BoxFit.fill,
+                  ),
+                ],
+              ),
+              Expanded(
+                  flex: 3,
+                  child: Container(
+                    width: double.infinity,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Center(
+                            child: GridView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              itemCount: 8,
+                              primary: false,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                                mainAxisExtent: 160,
+                              ),
+                              itemBuilder: (ctx, i) {
+                                return Card(
+                                  elevation: 10,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(30)),
+                                    margin: const EdgeInsets.all(5),
+                                    padding: const EdgeInsets.all(5),
+                                    child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Image.asset(
+                                                'assets/moon.png',
+                                              ),
+                                            ),
+                                            Text(
+                                              'Title',
+                                              style: context
+                                                  .textTheme.titleMedium!
+                                                  .copyWith(
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  Text(
-                                    'Title',
-                                  ),
-                                ],
-                              ),
-                            ],
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1.0,
-                      crossAxisSpacing: 0.0,
-                      mainAxisSpacing: 5,
-                      mainAxisExtent: 264,
+                        ],
+                      ),
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+                  ))
+            ])),
       ),
     );
   }
