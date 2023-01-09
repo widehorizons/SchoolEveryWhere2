@@ -8,7 +8,17 @@ class Student extends User {
   String? academicYear;
   String? semester;
 
-  Student({id, token, name, type});
+  Student(
+      {id,
+      token,
+      name,
+      type,
+      this.section,
+      this.stage,
+      this.studentClass,
+      this.grade,
+      this.academicYear,
+      this.semester});
 
   Student.fromJson(Map<String, dynamic> json) {
     id = json['id'];

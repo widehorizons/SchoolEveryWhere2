@@ -11,7 +11,6 @@ class HomeBinding extends Bindings {
     );
     Get.lazyPut<MenuController>(
       () => MenuController(),
-      fenix: true,
     );
   }
 }
