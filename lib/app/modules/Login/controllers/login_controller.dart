@@ -89,10 +89,12 @@ class LoginController extends GetxController {
         } else {
           failTrigger?.fire();
           Fluttertoast.showToast(msg: res['message'].toString());
+          Fluttertoast.showToast(msg: res['message'].toString());
         }
-      } catch (e) {
+      } catch (e, st) {
         failTrigger?.fire();
-        log(e.toString(), stackTrace: StackTrace.current);
+        log(e.toString());
+        log(st.toString());
       }
     }
     if (dropdownvalue.value?.isEmpty ?? true) {

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -7,6 +8,7 @@ import '../../config/Constants/prefs_keys.dart';
 import '../../config/utils/api_client.dart';
 import '../../config/utils/prefs.dart';
 import '../../models/dto/login_dto.dart';
+import '../../models/users/student.dart';
 
 class LoginService {
   login({
@@ -21,9 +23,11 @@ class LoginService {
     if (res.statusCode != HttpStatus.ok) {
       throw res.data['message'] ?? res.data;
     }
-    // Prefs.setMap(PrefsKeys.userModel, User.fromJson(res.data['data']).toMap());
-    // log((Prefs.getMap(PrefsKeys.userModel).toString()).toString());
-    Prefs.setString(PrefsKeys.token, 'ABCD');
+    final currentUser = Student.fromJson(res.data);
+    log(currentUser.toString());
+    Prefs.setMap(PrefsKeys.currentUser, currentUser.toJson());
+    log((Prefs.getMap(PrefsKeys.currentUser).toString()).toString());
+    Prefs.setString(PrefsKeys.token, currentUser.token!);
     return res.data;
   }
 

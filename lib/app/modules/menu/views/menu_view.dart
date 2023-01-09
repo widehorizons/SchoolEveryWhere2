@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../../config/Constants/prefs_keys.dart';
 import '../../../config/theme/theme.dart';
+import '../../../config/utils/prefs.dart';
+import '../../../models/users/Student.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_drawer.dart';
 import '../../../widgets/day_night_greating.dart';
@@ -41,7 +44,7 @@ class MenuView extends GetView<MenuController> {
                         child: Row(
                           children: [
                             Text(
-                              '${DayNightGreetingBanner.getGreeting()} ,\n Moustafa',
+                              '${DayNightGreetingBanner.getGreeting()} ,\n ${Student.fromJson(Prefs.getMap(PrefsKeys.currentUser)).name}',
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   height: 1.5,

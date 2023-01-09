@@ -6,12 +6,7 @@ abstract class User {
 
   User({id, token, name, type});
 
-  User.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        name = json['name'],
-        type = json['type'],
-        token = json['token'];
+  User.fromJson(Map<String, dynamic> json);
 
-  Map<String, dynamic> toJson() =>
-      {'name': name, 'id': id, 'token': token, 'type': type};
+  Map<String, dynamic> toJson();
 }

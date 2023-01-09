@@ -35,7 +35,11 @@ class Parent extends User {
 
   @override
   Map<String, dynamic> toJson() {
-    Map<String, dynamic> map = super.toJson();
+    Map<String, dynamic> map = {};
+    map['id'] = id;
+    map['token'] = token;
+    map['type'] = type;
+    map['name'] = name;
     map['childrenName'] = childrenName;
     map['childrenSection'] = childrenSection;
     map['childrenId'] = childrenId;

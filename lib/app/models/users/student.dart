@@ -1,6 +1,17 @@
 import 'user.dart';
 
-class Student extends User {
+class Student implements User {
+  @override
+  String? id;
+
+  @override
+  String? name;
+
+  @override
+  String? token;
+
+  @override
+  String? type;
   String? section;
   String? stage;
   String? studentClass;
@@ -35,7 +46,11 @@ class Student extends User {
 
   @override
   Map<String, dynamic> toJson() {
-    Map<String, dynamic> map = super.toJson();
+    Map<String, dynamic> map = {};
+    map['id'] = id;
+    map['token'] = token;
+    map['type'] = type;
+    map['name'] = name;
     map['section'] = section;
     map['academicYear'] = academicYear;
     map['stage'] = stage;
