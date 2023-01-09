@@ -1,14 +1,11 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 
 import '../../config/Constants/end_points.dart';
-import '../../config/Constants/prefs_keys.dart';
 import '../../config/utils/api_client.dart';
-import '../../config/utils/prefs.dart';
 import '../../models/dto/login_dto.dart';
-import '../../models/users/student.dart';
+import '../profile_service.dart';
 
 class LoginService {
   login({
@@ -23,11 +20,9 @@ class LoginService {
     if (res.statusCode != HttpStatus.ok) {
       throw res.data['message'] ?? res.data;
     }
-    final currentUser = Student.fromJson(res.data);
-    log(currentUser.toString());
-    Prefs.setMap(PrefsKeys.currentUser, currentUser.toJson());
-    log((Prefs.getMap(PrefsKeys.currentUser).toString()).toString());
-    Prefs.setString(PrefsKeys.token, currentUser.token!);
+    final userData = res.data;
+    ProfileService.saveCurrentUser(userData);
+
     return res.data;
   }
 

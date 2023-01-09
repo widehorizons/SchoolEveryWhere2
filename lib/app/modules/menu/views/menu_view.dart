@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../config/Constants/prefs_keys.dart';
 import '../../../config/theme/theme.dart';
-import '../../../config/utils/prefs.dart';
-import '../../../models/users/Student.dart';
+import '../../../services/profile_service.dart';
+import '../../../widgets/app_loading_widget.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_drawer.dart';
 import '../../../widgets/day_night_greating.dart';
@@ -44,7 +43,7 @@ class MenuView extends GetView<MenuController> {
                         child: Row(
                           children: [
                             Text(
-                              '${DayNightGreetingBanner.getGreeting()} ,\n ${Student.fromJson(Prefs.getMap(PrefsKeys.currentUser)).name}',
+                              '${DayNightGreetingBanner.getGreeting()} ,\n ${ProfileService.currentUser.name}',
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   height: 1.5,
@@ -106,65 +105,72 @@ class MenuView extends GetView<MenuController> {
               ),
               Expanded(
                   flex: 3,
-                  child: Container(
-                    width: double.infinity,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Center(
-                            child: GridView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 5),
-                              itemCount: 8,
-                              primary: false,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                                mainAxisExtent: 160,
-                              ),
-                              itemBuilder: (ctx, i) {
-                                return Card(
-                                  elevation: 10,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
-                                    margin: const EdgeInsets.all(5),
-                                    padding: const EdgeInsets.all(5),
-                                    child: Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Image.asset(
-                                                'assets/moon.png',
-                                              ),
+                  child: Obx(
+                    () => SizedBox(
+                      width: double.infinity,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Center(
+                              child: (controller.loading.value)
+                                  ? const AppLoadingWidget()
+                                  : GridView.builder(
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 5),
+                                      itemCount: controller.icons.length,
+                                      primary: false,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing: 10,
+                                        mainAxisSpacing: 10,
+                                        mainAxisExtent: 160,
+                                      ),
+                                      itemBuilder: (ctx, i) {
+                                        final icon = controller.icons[i];
+                                        return Card(
+                                          elevation: 10,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
+                                            margin: const EdgeInsets.all(5),
+                                            padding: const EdgeInsets.all(5),
+                                            child: Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Image.network(
+                                                        icon.imageURL,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      icon.title,
+                                                      style: context.textTheme
+                                                          .titleMedium!
+                                                          .copyWith(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                            Text(
-                                              'Title',
-                                              style: context
-                                                  .textTheme.titleMedium!
-                                                  .copyWith(
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                          ),
+                                        );
+                                      },
                                     ),
-                                  ),
-                                );
-                              },
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ))

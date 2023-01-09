@@ -20,10 +20,10 @@ class Student implements User {
   String? semester;
 
   Student(
-      {id,
-      token,
-      name,
-      type,
+      {this.id,
+      this.token,
+      this.name,
+      this.type,
       this.section,
       this.stage,
       this.studentClass,
@@ -37,7 +37,7 @@ class Student implements User {
     type = json['type'];
     token = json['token'];
     section = json['section'];
-    academicYear = json['academicYear'];
+    academicYear = json['year'];
     stage = json['stage'];
     grade = json['grade'];
     semester = json['semester'];
@@ -52,7 +52,7 @@ class Student implements User {
     map['type'] = type;
     map['name'] = name;
     map['section'] = section;
-    map['academicYear'] = academicYear;
+    map['year'] = academicYear;
     map['stage'] = stage;
     map['grade'] = grade;
     map['semester'] = semester;
