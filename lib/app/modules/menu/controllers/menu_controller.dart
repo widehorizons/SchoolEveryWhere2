@@ -14,6 +14,7 @@ class MenuController extends GetxController {
   List<ScreenIcon> icons = <ScreenIcon>[].obs;
 
   getHomeScreenIcons() async {
+    icons.clear();
     loading.value = true;
     try {
       icons.addAll(await _service.studetnHomeScreen(

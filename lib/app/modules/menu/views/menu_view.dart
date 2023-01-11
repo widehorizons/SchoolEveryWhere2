@@ -109,6 +109,7 @@ class MenuView extends GetView<MenuController> {
                     () => SizedBox(
                       width: double.infinity,
                       child: SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
                         child: Column(
                           children: [
                             Center(
@@ -127,44 +128,44 @@ class MenuView extends GetView<MenuController> {
                                         crossAxisCount: 2,
                                         crossAxisSpacing: 10,
                                         mainAxisSpacing: 10,
-                                        mainAxisExtent: 160,
+                                        mainAxisExtent: 140,
                                       ),
                                       itemBuilder: (ctx, i) {
                                         final icon = controller.icons[i];
                                         return Card(
-                                          elevation: 10,
+                                          elevation: 8,
                                           child: Container(
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            margin: const EdgeInsets.all(5),
                                             padding: const EdgeInsets.all(5),
-                                            child: Stack(
-                                              alignment: Alignment.center,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Image.network(
-                                                        icon.imageURL,
-                                                        alignment:
-                                                            Alignment.center,
-                                                      ),
+                                                Expanded(
+                                                  child: Center(
+                                                    child: Image.network(
+                                                      icon.imageURL,
+                                                      alignment:
+                                                          Alignment.center,
                                                     ),
-                                                    Text(
-                                                      icon.title,
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      style: context
-                                                          .textTheme.titleSmall!
-                                                          .copyWith(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700),
-                                                    ),
-                                                  ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 10),
+                                                  child: Text(
+                                                    icon.title,
+                                                    textAlign: TextAlign.start,
+                                                    style: context
+                                                        .textTheme.titleSmall!
+                                                        .copyWith(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                  ),
                                                 ),
                                               ],
                                             ),

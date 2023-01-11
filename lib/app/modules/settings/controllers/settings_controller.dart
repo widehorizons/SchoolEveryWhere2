@@ -5,6 +5,7 @@ import 'package:rive/rive.dart';
 import 'package:stacked_themes/stacked_themes.dart';
 
 import '../../../config/tr/lang_controller.dart';
+import '../../menu/controllers/menu_controller.dart';
 
 class SettingsController extends GetxController {
   static final themeManager = getThemeManager(Get.context!);
@@ -24,7 +25,13 @@ class SettingsController extends GetxController {
 
   changeLanguage(String languageCode) {
     LanguageController.updateLang(Locale(languageCode));
+    updateModulesLanguage();
     update();
+  }
+
+  updateModulesLanguage() {
+    final homePageController = Get.find<MenuController>();
+    homePageController.onInit();
   }
 
   @override

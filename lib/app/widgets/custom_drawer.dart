@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../config/theme/theme.dart';
+import '../models/users/user.dart';
 import '../routes/app_pages.dart';
+import '../services/profile_service.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final User currentUser = ProfileService.currentUser;
     return Drawer(
       elevation: 4.0,
       child: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: const Text('Mostafa'),
+            accountName: Text(currentUser.name!),
             currentAccountPicture:
                 const Image(image: AssetImage('assets/moon.png')),
-            accountEmail: Text(
-              "Mostafa@WideHorizons.net",
-              style: context.textTheme.labelMedium!
-                  .copyWith(color: AppColors.white),
-            ),
+            accountEmail: const Text(''),
           ),
           const SizedBox(
             height: 20,

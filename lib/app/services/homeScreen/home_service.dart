@@ -22,7 +22,6 @@ class HomeService {
     final icons = (response.data['data'] as List)
         .map((e) => ScreenIcon.fromJson(e))
         .toList();
-    log(icons.toString());
     return icons;
   }
 }
