@@ -11,7 +11,10 @@ class MenuController extends GetxController {
   final _service = Get.find<HomeService>();
   final code = TextEditingController();
   final loading = false.obs;
+  final query = RxString('');
+
   List<ScreenIcon> icons = <ScreenIcon>[].obs;
+  List<ScreenIcon> searchedList = <ScreenIcon>[].obs;
 
   getHomeScreenIcons() async {
     icons.clear();

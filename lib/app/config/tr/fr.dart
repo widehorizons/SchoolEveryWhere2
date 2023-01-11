@@ -31,5 +31,8 @@ Map<String, String> fr = {
   'identifier': 'identifier',
   'remember_me': 'Remember me',
   'please_select_user_type': 'please select user type',
-  'search': 'rechercher'
+  'search': 'rechercher',
+  'no_result_title': 'aucun résultat',
+  'no_result_body':
+      "Désolé, il n'y a pas de résultats pour cette recherche. Veuillez essayer une autre phrase"
 };

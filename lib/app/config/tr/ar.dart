@@ -30,5 +30,8 @@ Map<String, String> ar = {
   'password': 'كلمة المرور',
   'remember_me': 'تــذكرنـى',
   'please_select_user_type': 'من فضلك اختر نوع المستخدم',
-  'search': 'بحث'
+  'search': 'بحث',
+  'no_result_title': 'لا توجد نتيجة',
+  'no_result_body':
+      'عذرا، لا توجد أية نتيجة تتعلق بهذا البحث. يرجى تجربة عبارة أخرى'
 };

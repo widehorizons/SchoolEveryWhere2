@@ -3,11 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../config/theme/theme.dart';
+import '../../../models/screen_icon.dart';
 import '../../../services/profile_service.dart';
 import '../../../widgets/app_loading_widget.dart';
-import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_drawer.dart';
 import '../../../widgets/day_night_greating.dart';
+import '../../../widgets/empty_state.dart';
 import '../controllers/menu_controller.dart';
 
 class MenuView extends GetView<MenuController> {
@@ -59,46 +60,17 @@ class MenuView extends GetView<MenuController> {
                     bottom: 20,
                     right: 20,
                     left: 20,
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      child: Container(
-                        height: 50,
-                        width: context.width * .8,
-                        color: Colors.white.withAlpha(150),
-                        child: Row(children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: SvgPicture.asset(
-                              'assets/icons/search.svg',
-                              color: Colors.white,
-                              height: 25,
-                            ),
-                          ),
-                          Expanded(
-                            flex: 4,
-                            child: TextField(
-                              controller: controller.code,
-                              style: const TextStyle(color: Colors.black),
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                              flex: 2,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 5),
-                                child: CustomButton(
-                                    child: Text(
-                                      'search'.tr,
-                                      style: context.textTheme.caption!
-                                          .copyWith(color: Colors.white),
-                                    ),
-                                    onPressed: () async {}),
-                              ))
-                        ]),
-                      ),
+                    child: CustomSearchTextField(
+                      controller: controller.code,
+                      searchList: controller.icons,
+                      query: (value) {
+                        controller.query.value = value;
+                      },
+                      onClose: () {},
+                      onChange: (value) {
+                        controller.searchedList.clear();
+                        controller.searchedList.addAll(value);
+                      },
                     ),
                   ),
                 ],
@@ -106,80 +78,168 @@ class MenuView extends GetView<MenuController> {
               Expanded(
                   flex: 3,
                   child: Obx(
-                    () => SizedBox(
-                      width: double.infinity,
-                      child: SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
-                        child: Column(
-                          children: [
-                            Center(
-                              child: (controller.loading.value)
-                                  ? const AppLoadingWidget()
-                                  : GridView.builder(
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
-                                      shrinkWrap: true,
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 5),
-                                      itemCount: controller.icons.length,
-                                      primary: false,
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        crossAxisSpacing: 10,
-                                        mainAxisSpacing: 10,
-                                        mainAxisExtent: 140,
-                                      ),
-                                      itemBuilder: (ctx, i) {
-                                        final icon = controller.icons[i];
-                                        return Card(
-                                          elevation: 8,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(30)),
-                                            padding: const EdgeInsets.all(5),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Expanded(
-                                                  child: Center(
-                                                    child: Image.network(
-                                                      icon.imageURL,
-                                                      alignment:
-                                                          Alignment.center,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      horizontal: 10),
-                                                  child: Text(
-                                                    icon.title,
-                                                    textAlign: TextAlign.start,
-                                                    style: context
-                                                        .textTheme.titleSmall!
-                                                        .copyWith(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
+                    () => (controller.query.isNotEmpty &&
+                            controller.searchedList.isEmpty)
+                        ? EmptyState.noResult()
+                        : SizedBox(
+                            width: double.infinity,
+                            child: SingleChildScrollView(
+                              physics: const BouncingScrollPhysics(),
+                              child: Column(
+                                children: [
+                                  Center(
+                                    child: (controller.loading.value)
+                                        ? const AppLoadingWidget()
+                                        : MenuScreenBody(
+                                            icons: controller
+                                                    .searchedList.isNotEmpty
+                                                ? controller.searchedList
+                                                : controller.icons),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
+                          ),
                   ))
             ])),
+      ),
+    );
+  }
+}
+
+class MenuScreenBody extends StatelessWidget {
+  const MenuScreenBody({
+    Key? key,
+    required this.icons,
+  }) : super(key: key);
+
+  final List<ScreenIcon> icons;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      itemCount: icons.length,
+      primary: false,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 23,
+        mainAxisExtent: 160,
+      ),
+      itemBuilder: (ctx, i) {
+        final icon = icons[i];
+        return Card(
+          elevation: 8,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: Image.network(
+                      icon.imageURL,
+                      alignment: Alignment.center,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    icon.title,
+                    textAlign: TextAlign.start,
+                    style: context.textTheme.titleSmall!
+                        .copyWith(fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class CustomSearchTextField extends StatelessWidget {
+  const CustomSearchTextField({
+    Key? key,
+    required this.controller,
+    required this.searchList,
+    required this.onChange,
+    required this.query,
+    this.onClose,
+  }) : super(key: key);
+
+  final List<ScreenIcon> searchList;
+  final ValueChanged<List<ScreenIcon>> onChange;
+  final ValueChanged<String> query;
+  final TextEditingController controller;
+  final VoidCallback? onClose;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(12)),
+      child: Container(
+        height: 50,
+        width: context.width * .8,
+        color: Colors.white.withAlpha(150),
+        child: Row(children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: SvgPicture.asset(
+              'assets/icons/search.svg',
+              color: AppColors.secondaryTypoColor,
+              height: 25,
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: TextField(
+              controller: controller,
+              onChanged: (value) {
+                query(value);
+                final l = searchList
+                    .where((element) => element.title
+                        .toLowerCase()
+                        .contains(value.toLowerCase()))
+                    .toList();
+                onChange(l);
+              },
+              style: const TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                suffixIcon: CloseButton(
+                  color: AppColors.secondaryTypoColor,
+                  onPressed: () {
+                    controller.clear();
+                    onClose?.call();
+                    onChange(searchList);
+                  },
+                ),
+              ),
+            ),
+          ),
+          // Expanded(
+          //     flex: 2,
+          //     child: Padding(
+          //       padding: const EdgeInsets.symmetric(horizontal: 5),
+          //       child: CustomButton(
+          //           child: Text(
+          //             'search'.tr,
+          //             style: context.textTheme.caption!
+          //                 .copyWith(color: Colors.white),
+          //           ),
+          //           onPressed: () async {}),
+          //     ))
+        ]),
       ),
     );
   }

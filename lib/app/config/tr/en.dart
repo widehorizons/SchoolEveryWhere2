@@ -30,5 +30,7 @@ Map<String, String> en = {
   'identifier': 'identifier',
   'remember_me': 'Remember me',
   'please_select_user_type': 'please select user type',
-  'search': 'Search'
+  'search': 'Search',
+  'no_result_title':'No Results',
+  'no_result_body':'Sorry, there are no results for this search. Please try another phrase'
 };
