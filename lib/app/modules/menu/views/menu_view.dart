@@ -144,17 +144,21 @@ class MenuView extends GetView<MenuController> {
                                               children: [
                                                 Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Expanded(
                                                       child: Image.network(
                                                         icon.imageURL,
+                                                        alignment:
+                                                            Alignment.center,
                                                       ),
                                                     ),
                                                     Text(
                                                       icon.title,
-                                                      style: context.textTheme
-                                                          .titleMedium!
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: context
+                                                          .textTheme.titleSmall!
                                                           .copyWith(
                                                               fontWeight:
                                                                   FontWeight

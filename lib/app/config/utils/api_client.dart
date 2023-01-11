@@ -69,9 +69,9 @@ class ApiClient {
       case 'ar':
         return 10;
       case 'en':
-        return 10;
+        return 2;
       case 'fr':
-        return 10;
+        return 12;
       default:
         return 2;
     }
